@@ -1,5 +1,11 @@
 ## Welcome to GitHub Pages
 
+• Home Page
+• Team Roster Page
+• Software Design Page
+• UI Design Page
+• Project Plan Page
+
 You can use the [editor on GitHub](https://github.com/abhathal/cs2212_team8/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
