@@ -13,17 +13,7 @@ code itself. Desktop and mobile alerts will notify users to code edits or new co
 Chrome/Firefox.
 
 ### Elaboration:
-- The core functionality of our application is the code editor itself (including syntax highlighting)
-and the real-time collaborative function (real-time edits and shared URLs). Both of these will
-be achieved by implementing Firepad (https://firepad.io). Firepad is an open source
-collaborative text editor that can be implemented in web applications. Firepad utilizes the web
-application platform Firebase (https://firebase.google.com), which takes care of the back-end
-and database. Firebase allows the real-time syncing for the code editor.
-With Firebase taking the place of our back-end functionality, a separate front-end framework
-will be used in place of a full-stack framework such as Grails (https://grails.org). Our project
-will use AngularJS (https://angularjs.org) as our front-end framework. We will use AngularFire
-(https://angularfire2.com) to integrate Firebase with AngularJS. AngularFire is the officially
-supported AngularJS binding for Firebase.
+- The core functionality of our application is the code editor itself (including syntax highlighting) and the real-time collaborative function (real-time edits and shared URLs). Both of these will be achieved by implementing Firepad (https://firepad.io). Firepad is an open source collaborative text editor that can be implemented in web applications. Firepad utilizes the web application platform Firebase (https://firebase.google.com), which takes care of the back-end and database. Firebase allows the real-time syncing for the code editor. With Firebase taking the place of our back-end functionality, a separate front-end framework will be used in place of a full-stack framework such as Grails (https://grails.org). Our project will use AngularJS (https://angularjs.org) as our front-end framework. We will use AngularFire (https://angularfire2.com) to integrate Firebase with AngularJS. AngularFire is the officially supported AngularJS binding for Firebase.
 
 - Firebase allows user accounts, authentication, and provides cloud storage which will allow for our accounts and file storage features. We will the chrome.notification API (https://developer.chrome.com/apps/notifications) for Chrome alerts and the Mozilla Notification API (https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API) for Firefox alerts. A combination of Javascript, HTML, CSS and AngularJS will be used for the themes of our project/web-page. Firebase also provides real-time web-chat functionality, although how exactly this can be integrated with our web-page must be determined. A alternative web-chat API is Disqus (https://disqus.com/api/docs/) which can be integrated into our web-page.
 
