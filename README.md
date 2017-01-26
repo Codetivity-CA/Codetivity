@@ -25,24 +25,7 @@ will use AngularJS (https://angularjs.org) as our front-end framework. We will u
 (https://angularfire2.com) to integrate Firebase with AngularJS. AngularFire is the officially
 supported AngularJS binding for Firebase.
 
-- Firebase allows user accounts, authentication, and provides cloud storage which will allow for
-our accounts and file storage features. We will the chrome.notification API
-(https://developer.chrome.com/apps/notifications) for Chrome alerts and the Mozilla
-Notification API (https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API) for
-Firefox alerts. A combination of Javascript, HTML, CSS and AngularJS will be used for the
-themes of our project/web-page. Firebase also provides real-time web-chat functionality,
-although how exactly this can be integrated with our web-page must be determined. A
-alternative web-chat API is Disqus (https://disqus.com/api/docs/) which can be integrated i
-our web-page.
+- Firebase allows user accounts, authentication, and provides cloud storage which will allow for our accounts and file storage features. We will the chrome.notification API (https://developer.chrome.com/apps/notifications) for Chrome alerts and the Mozilla Notification API (https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API) for Firefox alerts. A combination of Javascript, HTML, CSS and AngularJS will be used for the themes of our project/web-page. Firebase also provides real-time web-chat functionality, although how exactly this can be integrated with our web-page must be determined. A alternative web-chat API is Disqus (https://disqus.com/api/docs/) which can be integrated into our web-page.
 
 ### Advanced Feature(s)
-- An advanced feature we are proposing is video conferencing integrated into the code editor.
-The WebRTC API (https://webrtc.org/) allows for video and audio chat in modern HTML5
-browsers (Chrome/Firefox). A challenge will be figuring how to integrate this API with our
-AngularJS front-end and Firebase back-end. It may also be necessary to utilize a different
-back-end framework such as Node.js in order to effectively integrate video conferencing.
-Through consulting with our TA and further research, the feasibility of video conferencing will
-Bhathal, A., Friesen, N.D., Gilchrist, A.R, Gleason, D.B., He, Y., Kozak, H.A., Madrzyk, A.D.,
-Maroofzadeh, Z.
-be determined. None of the core functionality of our project depends on this advanced
-feature.
+- An advanced feature we are proposing is video conferencing integrated into the code editor. The WebRTC API (https://webrtc.org/) allows for video and audio chat in modern HTML5 browsers (Chrome/Firefox). A challenge will be figuring how to integrate this API with our AngularJS front-end and Firebase back-end. It may also be necessary to utilize a different back-end framework such as Node.js in order to effectively integrate video conferencing. Through consulting with our TA and further research, the feasibility of video conferencing will be determined. None of the core functionality of our project depends on this advanced feature.
