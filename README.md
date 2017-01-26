@@ -3,14 +3,9 @@
 ## Real-time collaborative web-based code editor (Name TBD)
 
 ### Short description with features:
-- Our project will be a real-time collaborative web-based code editor. It will allow multiple users
-to view and edit the same document. The editor will feature syntax highlighting for a variety of
-programming languages and a selection of themes to choose from. 
-- Users will be able to share a URL with collaborators to allow them to join the workspace. Users will also be able to
-create and login to an account in order to store their files in the cloud. 
-- There will also be a comment box to allow collaborators to write notes and comments without interfering with the
-code itself. Desktop and mobile alerts will notify users to code edits or new comments for
-Chrome/Firefox.
+- Our project will be a real-time collaborative web-based code editor. It will allow multiple users to view and edit the same document. The editor will feature syntax highlighting for a variety of programming languages and a selection of themes to choose from. 
+- Users will be able to share a URL with collaborators to allow them to join the workspace. Users will also be able to create and login to an account in order to store their files in the cloud. 
+- There will also be a comment box to allow collaborators to write notes and comments without interfering with the code itself. Desktop and mobile alerts will notify users to code edits or new comments for Chrome/Firefox.
 
 ### Elaboration:
 - The core functionality of our application is the code editor itself (including syntax highlighting) and the real-time collaborative function (real-time edits and shared URLs). Both of these will be achieved by implementing Firepad (https://firepad.io). Firepad is an open source collaborative text editor that can be implemented in web applications. Firepad utilizes the web application platform Firebase (https://firebase.google.com), which takes care of the back-end and database. Firebase allows the real-time syncing for the code editor. With Firebase taking the place of our back-end functionality, a separate front-end framework will be used in place of a full-stack framework such as Grails (https://grails.org). Our project will use AngularJS (https://angularjs.org) as our front-end framework. We will use AngularFire (https://angularfire2.com) to integrate Firebase with AngularJS. AngularFire is the officially supported AngularJS binding for Firebase.
