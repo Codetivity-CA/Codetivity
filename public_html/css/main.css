@@ -877,6 +877,14 @@ ul.social-icons li {
 .team-member .social-icons .facebook {
   padding: 4px 12px;
 }
+#team h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .about-feature {
   margin-top: 50px;
 }
