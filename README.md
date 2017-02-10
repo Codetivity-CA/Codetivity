@@ -15,3 +15,5 @@
 
 ### Advanced Feature(s)
 - An advanced feature we are proposing is video conferencing integrated into the code editor. The WebRTC API (https://webrtc.org/) allows for video and audio chat in modern HTML5 browsers (Chrome/Firefox). A challenge will be figuring how to integrate this API with our AngularJS front-end and Firebase back-end. It may also be necessary to utilize a different back-end framework such as Node.js in order to effectively integrate video conferencing. Through consulting with our TA and further research, the feasibility of video conferencing will be determined. None of the core functionality of our project depends on this advanced feature.
+
+Copyright © 2017 Bhathal, Arvinder; Friesen, Nicholas Dylan; Gilchrist, Adam Robert; Gleason, Daniel B; He, Yifan; Kozak, Heather Anne; Madrzyk, Alexander Dominic; Maroofzadeh, Zagros
