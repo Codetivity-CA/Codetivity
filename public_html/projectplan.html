@@ -139,22 +139,61 @@
                             </div>
                             <div class="post-content">
                                 <p>
-                                    "Feel free to show your updates from stage 0"
+                                    <strong>Integrated Video Conferencing</strong>
+
+                                    <br><br>This feature will allow collaborators to engage in a video/audio conference, using their browser, right from Codetivity! Specifically, the WebRTC API allows modern HTML5 browsers (Chrome, Firefox) to engage in video/audio chat from the browser.
+                                    <br>This feature would require:
                                 </p>
-                                <blockquote>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas alias ut totam labore, rerum soluta harum vitae pariatur, optio, ad dolore, nihil eligendi nesciunt repellat esse provident sapiente. Repellendus, minus!
-                                </blockquote>
+                                <ul>
+                                    <li>Integrating the WebRTC API with our AngularJS front-end</li>
+                                    <li>Integrating our Firebase database with the video chat to allow collaborators to seamlessly start a video chat with each other (retrieving information about other collaborators)</li>
+                                    <li>Handling back-end video chat functionality with Node.js, as required</li>
+                                </ul>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis expedita repellendus laboriosam aliquid. Neque doloribus ea, id reprehenderit alias saepe debitis eligendi molestias odit, nesciunt rem. Dolorem saepe, provident dolore nesciunt laudantium nostrum enim natus veritatis harum maxime et iure ratione, nulla. Minus excepturi commodi tempore voluptate. Blanditiis similique dolor asperiores ex excepturi perspiciatis, dolores id esse. Voluptate beatae nesciunt cum esse ratione officiis necessitatibus blanditiis ea, laboriosam fugit vero maxime? Voluptatum illo dolorum autem pariatur quisquam. Voluptates soluta culpa necessitatibus veritatis tempora incidunt doloribus placeat repellat et facilis eum sapiente fugit numquam aut, laboriosam aspernatur, esse, magnam excepturi repudiandae amet voluptas nulla quidem. Veritatis nisi consequuntur saepe qui quisquam dignissimos assumenda, iusto odio. Dignissimos reprehenderit esse iusto cupiditate nisi enim, animi similique itaque, perspiciatis error qui. Aperiam, architecto provident.
+                                    Difficulty in integrating the WebRTC API as described above would affect the feasibility of functional video conferencing. Overall, we believe the feature is feasible as there is only a single API to utilize.
+                                    <br>Video conferencing is an additional feature that the core features of Codetivity do not depend upon. Even with video conferencing integrated, text-based chat will still be featured in Codetivity.
                                 </p>
-                                <ol>
-                                    <li>Ipsum dolor sit amet.</li>
-                                    <li>Lorem sit amet.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem ipsum dolor amet.</li>
-                                </ol>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nostrum consectetur voluptatibus, odio ea ab distinctio, nulla asperiores facere sequi dolorum molestiae magni sed velit officia rerum illo necessitatibus consequatur maiores magnam possimus voluptas suscipit praesentium iste! Praesentium, modi, illum. Sint quis eos expedita porro voluptatum reiciendis minus vitae atque deleniti eligendi nulla, dolorem adipisci, assumenda sunt modi suscipit inventore hic nostrum veniam, ea accusantium quisquam! Ipsum odio, ducimus magnam nam ad quaerat soluta, ab laudantium beatae eius iusto fugit blanditiis laboriosam cupiditate dolor aut nulla a quam dolores? Unde, sunt, explicabo sapiente quos reiciendis iste fuga atque esse voluptatem.
+                                    <strong>Shared Programming Challenge</strong>
+
+                                    <br><br>This feature will add the ability to view a shared text document with other collaborators. This would be a collapsible pane that displays the text document. The idea is for collaborators to work on the same problem together and be able to seamlessly view the challenge right from Codetivity.
+                                    <br>This feature would require:
+                                </p>
+                                <ul>
+                                    <li>The addition of a document pane to our front-end that is collapsible</li>
+                                    <li>The associating of the challenge text document with certain users or code files to allow persistence throughout sessions (cloud upload and retrieval)</li>
+                                    <li>An easy way to upload or paste in the document</li>
+                                </ul>
+                                <p>
+                                    The challenge in integrating this feature is largely in the front-end side of things. We believe this feature is feasible given our Firebase database is able to easily store and retrieve the text documents.
+                                    <br>The shared programming challenge is an additional feature that none of the core features of Codetivity depend upon.
+                                </p>
+                                <p>
+                                    <strong>Selection of Themes</strong>
+
+                                    <br><br>This feature would allow users to choose from a selection of themes for Codetivity from the settings pane. The current theme will be saved and displayed the next time a user logs on. The themes will target mainly the colour of menus/text/background.
+                                    <br>This feature would require:
+                                </p>
+                                <ul>
+                                    <li>Integrating the themes with our AngularJS front-end to allow seamless changes (so the user does not have to refresh the web-page)</li>
+                                    <li>Storing the selection of theme in a user account</li>
+                                </ul>
+                                <p>
+                                    Besides the possible challenge of seamlessly changing the theme without requiring a refresh, we believe the feature is feasible.
+                                    <br>Codetivity would feature a default theme and so the core features of Codetivity do not depend on being able to change the theme.
+                                </p>
+                                <p>
+                                    <strong>Execute Javascript Code Inside Codetivity</strong>
+
+                                    <br><br>This feature would allow users to use the Javascript engine in their browser to execute and view the output of Javascript code they’ve written. The output would appear in a separate pane, either beside or below the editor. This feature would allow users to test their code for proper output right inside Codetivity.
+                                    <br>This feature would require:
+                                </p>
+                                <ul>
+                                    <li>Seamless integration of output pane with our AngularJS front-end</li>
+                                </ul>
+                                <p>
+                                    As Codetivity is mainly designed as a collaborative editor, none of the core features of Codetivity depend on being able to execute Javascript code.
+                                    <br>
                                 </p>
                             </div>
                         </div>
