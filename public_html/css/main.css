@@ -1034,7 +1034,7 @@ article {
   padding: 40px 0;
 }
 .single-post {
-  padding: 80px 0 20px;
+  padding: 50px 0 80px;
 }
 .single-post .post-content {
   padding: 40px 0;
@@ -1113,4 +1113,26 @@ article {
   padding: 8px 0;
   color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.uiDesignHeader {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  text-align: center;
+  padding: 50px 0;
+}
+.uiDesignText{
+  padding-bottom: 70px;
+  /*text-align: center;*/
+}
+.projectPlanHeader {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  text-align: center;
+  padding: 50px 0 15px 0;
+}
+.dropdown-menu {
+  padding: 0;
 }
