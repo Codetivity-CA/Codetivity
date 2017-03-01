@@ -19,7 +19,10 @@ rootRef.once("value")
 	.then(function(snapshot) {
 		var key = snapshot.key; //null
 		var childKey = snapshot.child("users/ada").key; // "ada"
-		console.log(snapshot.val());
+
+    console.log(snapshot.val());
+
+    
 	}
 );
 
