@@ -4,12 +4,102 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+
+
+
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+  <!-- CodeMirror and its JavaScript mode file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/javascript/javascript.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+
+  <!-- Firepad -->
+  <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
+  <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
+
+  <style>
+    html { height: 100%; }
+    body { margin: 0; height: 100%; position: relative; }
+    /* Height / width / positioning can be customized for your use case.
+       For demo purposes, we make firepad fill the entire browser. */
+    #firepad-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+
+
+
+
+
+
     <script src="/javascripts/myApp.js"></script>
   	<script src="/javascripts/myController.js"></script>
   </head>
-  <body ng-controller= 'myController'>
+  <body ng-controller= 'myController' onload="init()">
     <h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+
+
+
+
+    <div id="firepad-container"></div>
+    <script>
+      function init() {
+        //// Initialize Firebase.
+        //// TODO: replace with your Firebase project configuration.
+        var config = {
+          apiKey: "AIzaSyCLgpdM5mcOfkE1uqjZ7Nk9PT-QWo84zHo",
+          authDomain: "code-f93dc.firebaseapp.com",
+          databaseURL: "https://code-f93dc.firebaseio.com",
+          storageBucket: "code-f93dc.appspot.com",
+          messagingSenderId: "624601224226"
+        };
+        firebase.initializeApp(config);
+
+        //// Get Firebase Database reference.
+        var firepadRef = getExampleRef();
+
+        //// Create CodeMirror (with line numbers and the JavaScript mode).
+        var codeMirror = CodeMirror(document.getElementById('firepad-container'), {
+          lineNumbers: true,
+          mode: 'javascript'
+        });
+
+        //// Create Firepad.
+        var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror);
+      }
+
+      // Helper to get hash from end of URL or generate a random one.
+      function getExampleRef() {
+        var ref = firebase.database().ref();
+        var hash = window.location.hash.replace(/#/g, '');
+        if (hash) {
+          ref = ref.child(hash);
+        } else {
+          ref = ref.push(); // generate unique location.
+          window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+        }
+        if (typeof console !== 'undefined') {
+          console.log('Firebase data: ', ref.toString());
+        }
+        return ref;
+      }
+    </script>
+
+
+
+
+
+
   </body>
 </html>
