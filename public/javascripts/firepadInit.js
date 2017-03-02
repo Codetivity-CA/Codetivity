@@ -1,14 +1,15 @@
-function firepad_init() {
-  //// Initialize Firebase.
-  //// TODO: replace with your Firebase project configuration.
-  var config = {
-    apiKey: "AIzaSyCLgpdM5mcOfkE1uqjZ7Nk9PT-QWo84zHo",
-    authDomain: "code-f93dc.firebaseapp.com",
-    databaseURL: "https://code-f93dc.firebaseio.com",
-    storageBucket: "code-f93dc.appspot.com",
-    messagingSenderId: "624601224226"
+
+function startFirepad(){
+
+  // Initialize Firebase
+  var settings = {
+      apiKey: "AIzaSyB3QZBjTDzoG50Aq-7sOwPfDTS7MGNKBO8",
+      authDomain: "codetivity-89e7c.firebaseapp.com",
+      databaseURL: "https://codetivity-89e7c.firebaseio.com",
+      storageBucket: "codetivity-89e7c.appspot.com",
+      messagingSenderId: "1022467561792"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(settings);
 
   //// Get Firebase Database reference.
   // THIS IS THE HASH CODE???
@@ -35,7 +36,7 @@ function getExampleRef() {
     window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
   }
   if (typeof console !== 'undefined') {
-    console.log('Firebase data: ', ref.toString());
+    // console.log('Firebase data: ', ref.toString());
   }
   return ref;
 }
