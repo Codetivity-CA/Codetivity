@@ -1,8 +1,20 @@
+
+html {
+  height: 100%;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0; height: 100%;
+  position: relative;
 }
 
 a {
   color: #00B7FF;
+}
+
+#firepad-container {
+  width: 100%;
+  height: 100%;
 }
