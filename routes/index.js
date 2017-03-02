@@ -14,7 +14,7 @@ firebase.initializeApp(settings);
 
 // The app only has access to public data as defined in the Security Rules
 var db = firebase.database();
-var ref = db.ref("/heather/");
+var ref = db.ref("/heather/text");
 ref.once("value").then(function(snapshot){
   printDatabase(snapshot);
 });
@@ -30,6 +30,8 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 
 // FUNCTIONS
-function printDatabase(blah){
-    console.log(blah.val());
+function printDatabase(snapshot){
+    if (snapshot.val() == "shfaksdjfhalskjdfhlasdkjfh") {
+      console.log("Database working.");
+    }
 }
