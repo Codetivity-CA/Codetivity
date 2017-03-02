@@ -1,33 +1,33 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@4.1.2
-3 info using node@v7.3.0
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle codetivity@0.0.0~prestart: codetivity@0.0.0
 6 silly lifecycle codetivity@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle codetivity@0.0.0~start: codetivity@0.0.0
 8 verbose lifecycle codetivity@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle codetivity@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/alexmadrzyk/Google Drive/3rd Year/COMPSCI 2212B/Code-Editor/Codetivity/node_modules/.bin:/Users/alexmadrzyk/.sdkman/candidates/grails/current/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alexmadrzyk/Desktop/android
-10 verbose lifecycle codetivity@0.0.0~start: CWD: /Users/alexmadrzyk/Google Drive/3rd Year/COMPSCI 2212B/Code-Editor/Codetivity
+9 verbose lifecycle codetivity@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/arv/2212/Codetivity/node_modules/.bin:/home/arv/.sdkman/candidates/grails/current/bin:/home/arv/bin:/home/arv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle codetivity@0.0.0~start: CWD: /home/arv/2212/Codetivity
 11 silly lifecycle codetivity@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle codetivity@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle codetivity@0.0.0~start: Failed to exec start script
 14 verbose stack Error: codetivity@0.0.0 start: `node ./bin/www`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:885:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/share/npm/lib/utils/lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:821:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid codetivity@0.0.0
-16 verbose cwd /Users/alexmadrzyk/Google Drive/3rd Year/COMPSCI 2212B/Code-Editor/Codetivity
-17 error Darwin 16.4.0
-18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-19 error node v7.3.0
-20 error npm  v4.1.2
+16 verbose cwd /home/arv/2212/Codetivity
+17 error Linux 4.8.0-39-generic
+18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+19 error node v4.2.6
+20 error npm  v3.5.2
 21 error code ELIFECYCLE
 22 error codetivity@0.0.0 start: `node ./bin/www`
 22 error Exit status 1
