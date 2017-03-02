@@ -1,6 +1,6 @@
 var express = require('express');
-var router = express.Router();
 var firebase = require('firebase');
+var router = express.Router();
 
 // Initialize Firebase
 var config = {
@@ -13,20 +13,24 @@ var config = {
 firebase.initializeApp(config);
 
 // The app only has access to public data as defined in the Security Rules
-var rootRef = firebase.database().ref();
-var FirebaseContent = {};
-rootRef.once("value")
-	.then(function(snapshot) {
-		var key = snapshot.key; //null
-		var childKey = snapshot.child("users/ada").key; // "ada"
-    console.log(key);
-	}
-);
-
+var db = firebase.database();
+var ref = db.ref("/heather/");
+ref.once("value").then(function(snapshot){
+  printDatabase(snapshot);
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // THIS IS WHERE IT'S LOOKING FOR THE MAIN PAGE AND RENDERING IT!!!!!!!!!!!!!!!!!!!
+  res.render('codetivity', {
+    title: 'Express'
+  });
 });
 
 module.exports = router;
+
+
+// FUNCTIONS
+function printDatabase(blah){
+    console.log(blah.val());
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <!-- <title><%= title %></title> -->
+    <title>Codetivity</title>
+     <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+    <!-- CodeMirror and its JavaScript mode file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- Firepad -->
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
+    <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
+
+    <!-- Controllers -->
+    <script src="/javascripts/myApp.js"></script>
+  	<script src="/javascripts/myController.js"></script>
+  </head>
+  <body ng-controller= 'myController' onload="firepad_init()">
+    <!-- <h1> {{jsVariable}} </h1>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
+
+    <header>
+       <h1>&nbspCodetivity</h1>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4" style="background-color: #0288d1"><font color="white">Files</font>
+          <div class="row">
+            <div class="col-xs-12">file here</div>
+            <div class="col-xs-12" style="background-color: #0288d1"><font color="white">Chat</font></div>
+            <div class="col-xs-12">Alex: hey</div>
+          </div>
+        </div>
+        <div class="col-xs-8" style="height: 500px">
+              <div id="firepad-container"></div>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="/javascripts/firepadInit.js"></script>
+  </body>
+</html>
