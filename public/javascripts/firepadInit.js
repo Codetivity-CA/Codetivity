@@ -36,7 +36,11 @@ function getExampleRef() {
     window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
   }
   if (typeof console !== 'undefined') {
-    // console.log('Firebase data: ', ref.toString());
+    console.log('Firebase data: ', ref.toString());
   }
+
+  $("#shareLink").html(ref.key);
+  $("#shareClickable").attr("href", "https://codetivity.herokuapp.com/#" + ref.key);
+
   return ref;
 }

@@ -38,7 +38,7 @@
         <div class="col-xs-4 border" style='padding: 0'>
           <div style="width: 100%; color: white; background-color: #0288d1">Files</div>
           <div style="width: 100%"><strong>Share</strong> the link below to begin collaborating with others.
-          <br><br><em><p id = "shareLink"></p></em>
+          <br><br><em><a id="shareClickable">https://codetivity.herokuapp.com/#<p id="shareLink"></p></a></em>
           <br>You can start coding on the right or <strong>upload</strong> your files by dragging and dropping them <em>in the coding window</em>
           </div>
           <div style="width: 100%; color: white; background-color: #0288d1">Chat</div>
@@ -60,7 +60,7 @@
 
     <!-- get current URL -->
     <script>
-    document.getElementById("shareLink").innerHTML = window.location.href;
+      document.getElementById("shareLink").innerHTML = window.location.href;
     </script>
   </body>
 </html>
