@@ -16,7 +16,7 @@ firebase.initializeApp(settings);
 var db = firebase.database();
 var ref = db.ref("/heather/text");
 ref.once("value").then(function(snapshot){
-  printDatabase(snapshot);
+  checkDatabase(snapshot);
 });
 
 /* GET home page. */
@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 
 // FUNCTIONS
-function printDatabase(snapshot){
+function checkDatabase(snapshot){
     if (snapshot.val() == "shfaksdjfhalskjdfhlasdkjfh") {
       console.log("Database working.");
     }

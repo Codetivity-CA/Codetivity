@@ -15,7 +15,7 @@ function startFirepad(){
 
   //// Get Firebase Database reference.
   // THIS IS THE HASH CODE???
-  var firepadRef = getExampleRef();
+  var firepadRef = getFileHash();
 
   //// Create CodeMirror (with line numbers and the JavaScript mode).
   codeMirror = CodeMirror(document.getElementById('firepad-container'), {
@@ -29,7 +29,7 @@ function startFirepad(){
 }
 
 // Helper to get hash from end of URL or generate a random one.
-function getExampleRef() {
+function getFileHash() {
   var ref = firebase.database().ref();
   var hash = window.location.hash.replace(/#/g, '');
   if (hash) {
@@ -49,6 +49,49 @@ function getExampleRef() {
   return ref;
 }
 
-function getText(){
-    alert(codeMirror.getValue());
+// function saveFile(){
+//   var textContents = codeMirror.getValue(); // i think in the project editor was called codeMirror
+//   var fileAsBlob = new Blob([textContents], {type:"text/plain;charset=utf-8"});
+//   var fileName = prompt("Enter the name of file"); // user can put the desired extension
+//   if(!fileName) return;
+//   var downloadLink = document.createElement("a");
+//   downloadLink.download = fileName;
+//   downloadLink.innerHTML = "Download File";
+//   if (window.webkitURL != null){
+//       // Chrome allows the link to be clicked
+//       // without actually adding it to the DOM.
+//       downloadLink.href = window.webkitURL.createObjectURL(fileAsBlob);
+//   }
+//   else{
+//       // Firefox requires the link to be added to the DOM
+//       // before it can be clicked.
+//       downloadLink.href = window.URL.createObjectURL(fileAsBlob);
+//       downloadLink.onclick = destroyClickedElement;
+//       downloadLink.style.display = "none";
+//       document.body.appendChild(downloadLink);
+//   }
+//   downloadLink.click();
+// }
+
+// Function to download data to a file
+function saveFile() {
+    var data = codeMirror.getValue();
+    var filename = prompt("Set file name:");
+      if(!filename) return;
+    var type = "text/plain;charset=utf-8";
+    var a = document.createElement("a"),
+        file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
 }
