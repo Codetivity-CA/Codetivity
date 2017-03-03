@@ -37,8 +37,14 @@
       <div class="row border" style="height: 100%">
         <div class="col-xs-4 border" style='padding: 0'>
           <div style="width: 100%; color: white; background-color: #0288d1">Files</div>
-          <div style="width: 100%"><strong>Share</strong> the link below to begin collaborating with others.
-          <br><br><em><a id="shareClickable">https://codetivity.herokuapp.com/#<p id="shareLink"></p></a></em>
+          <div style="width: 100%">
+            <button onclick="getText()">Get Text</button><br>
+            <strong>Share</strong> the link below to begin collaborating with others.
+          <br><br>
+          <em>
+            <a id="shareClickable">https://codetivity.herokuapp.com/#<span id="shareLink"></span><br>
+            </a>
+          </em>
           <br>You can start coding on the right or <strong>upload</strong> your files by dragging and dropping them <em>in the coding window</em>
           </div>
           <div style="width: 100%; color: white; background-color: #0288d1">Chat</div>
@@ -57,10 +63,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="/javascripts/firepadInit.js"></script>
-
-    <!-- get current URL -->
-    <script>
-      document.getElementById("shareLink").innerHTML = window.location.href;
-    </script>
   </body>
 </html>

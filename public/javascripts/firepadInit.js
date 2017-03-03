@@ -1,4 +1,6 @@
 
+var codeMirror;
+
 function startFirepad(){
 
   // Initialize Firebase
@@ -16,13 +18,14 @@ function startFirepad(){
   var firepadRef = getExampleRef();
 
   //// Create CodeMirror (with line numbers and the JavaScript mode).
-  var codeMirror = CodeMirror(document.getElementById('firepad-container'), {
+  codeMirror = CodeMirror(document.getElementById('firepad-container'), {
     lineNumbers: true,
     mode: 'javascript'
   });
 
   //// Create Firepad.
   var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror);
+
 }
 
 // Helper to get hash from end of URL or generate a random one.
@@ -43,4 +46,8 @@ function getExampleRef() {
   $("#shareClickable").attr("href", "https://codetivity.herokuapp.com/#" + ref.key);
 
   return ref;
+}
+
+function getText(){
+    alert(codeMirror.getValue());
 }
