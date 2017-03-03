@@ -10,7 +10,7 @@ Real-time collaborative web-based code editor
 
 ## MVC file structure
 
-- **Model** `/routes/`
-- **View** `/views/`
-- **Controller** `/public/javascripts`
+- **Model** `/routes/` – Back-end connecting with Firebase
+- **View** `/views/` – Rendered expressJS view (what the client-side sees)
+- **Controller** `/public/javascripts` – Angular javascript code that controls the view
 
