@@ -46,6 +46,17 @@ header{
   padding-right: 10px;
 }
 
+.popover{
+  padding-top: 5px;
+  background: #3e3e3b;
+}
+
+.popover.bottom .arrow:after {
+  border-bottom-color: #3e3e3b;
+}
+
+
+
 /* ==================================== Firepad =================================== */
 
 #firepad-container {

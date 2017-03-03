@@ -50,12 +50,17 @@
             </ul>
           </div>
         </div>
-
+        
+        <!-- LINK COPY -->
         <div class='pull-right' style="height: 100%">
           <div class="input-group linkCopy" style="width: 300px">
             <input type="text" class="form-control" id="linkHolder" placeholder="Link">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><span class='glyphicon glyphicon-copy'></span></button>
+
+              <a data-toggle="popover" data-content="Copied!" data-placement="bottom" data-trigger="focus">
+
+                <button class="btn btn-default" type="button" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none"><span class='glyphicon glyphicon-copy'></span></button>
+              </a>
             </span>
           </div><!-- /input-group -->
         </div>
@@ -116,6 +121,8 @@
         popup.css("height", "5%");
       }
 
+
+      $('[data-toggle="popover"]').popover();   
     </script>
     
   </body>
