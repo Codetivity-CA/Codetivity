@@ -44,6 +44,7 @@ function getExampleRef() {
 
   $("#shareLink").html(ref.key);
   $("#shareClickable").attr("href", "https://codetivity.herokuapp.com/#" + ref.key);
+  document.getElementById("linkHolder").value = "https://codetivity.herokuapp.com/#" + ref.key;
 
   return ref;
 }

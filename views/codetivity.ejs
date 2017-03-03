@@ -30,16 +30,35 @@
     <p>Welcome to <%= title %></p> -->
 
     <header>
-      <div class='container navContainer'>
-        <div class='row'>
-          <div class="col-xs-4">
-            <h1>Codetivity</h1>
+      <div style='width: 100%; height: 100%;'>
+        <img id='logo' src='/images/codetivity-logo.png' alt='codetivity logo' height='100%'/>
+
+        <div class='pull-right' style="height: 100%">
+          <div class="btn-group" style="height: 100%">
+            <button type="button" class="btn btn-default dropdown-toggle settingsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height: 100%">
+              <span class='glyphicon glyphicon-cog settingsCog'></span>
+            </button>
+            <ul class="dropdown-menu" style="left: inherit; right: 0">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
           </div>
-          <div class="col-xs-offset-4 col-xs-4">
-            <h1 class='gear'>
-              <span class="glyphicon glyphicon-cog"></span>
-            </h1>
-          </div>
+        </div>
+
+        <div class='pull-right' style="height: 100%">
+          <div class="input-group linkCopy" style="width: 300px">
+            <input type="text" class="form-control" id="linkHolder" placeholder="Link">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><span class='glyphicon glyphicon-copy'></span></button>
+            </span>
+          </div><!-- /input-group -->
+        </div>
+
+        <div class='pull-right' style="height: 100%; padding: 27px 10px 0 0">
+          <span style='color: black; '><b>Share:</b></span>
         </div>
       </div>
     </header>
@@ -68,9 +87,9 @@
         </div>
       </div>
     </div>
+    <div id="popup"></div>
     <div id="onlineMembers">+ Online Members</div>
     <div id="footer"></div>
-    <div id="popup"></div>
 
     <!-- jQuery (for Bootstrap's JavaScript plugins) + Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
