@@ -50,7 +50,7 @@
         <div class="col-xs-4 border" style='padding: 0; height: 100%;'>
           <div style="width: 100%; color: white; background-color: #0288d1">Files</div>
           <div style="width: 100%">
-            <button onclick="getText()">Get Text</button><br>
+            <button onclick="saveFile()">Download File</button><br>
             <strong>Share</strong> the link below to begin collaborating with others.
           <br><br>
           <em>
@@ -96,13 +96,6 @@
       }
 
     </script>
-    <script>
-      window.onkeydown = function(e) {
-        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {//override ctrl + s
-          e.preventDefault();
-          saveFile();
-        }
-      }
-    </script>
+    
   </body>
 </html>
