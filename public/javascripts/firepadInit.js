@@ -15,7 +15,7 @@ function startFirepad(){
 
   //// Get Firebase Database reference.
   // THIS IS THE HASH CODE???
-  var firepadRef = getExampleRef();
+  var firepadRef = getFileHash();
 
   //// Create CodeMirror (with line numbers and the JavaScript mode).
   codeMirror = CodeMirror(document.getElementById('firepad-container'), {
@@ -29,7 +29,7 @@ function startFirepad(){
 }
 
 // Helper to get hash from end of URL or generate a random one.
-function getExampleRef() {
+function getFileHash() {
   var ref = firebase.database().ref();
   var hash = window.location.hash.replace(/#/g, '');
   if (hash) {
