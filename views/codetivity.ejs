@@ -17,6 +17,9 @@
 
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
+    <!-- clipboardjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+
     <!-- Firepad -->
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
     <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
@@ -55,7 +58,7 @@
           <div class="input-group linkCopy" style="width: 300px">
             <input type="text" class="form-control" id="linkHolder" placeholder="Link">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><span class='glyphicon glyphicon-copy'></span></button>
+              <button class="btn btn-default" type="button" id="copy-button" data-clipboard-target="#linkHolder"><span class='glyphicon glyphicon-copy'></span></button>
             </span>
           </div><!-- /input-group -->
         </div>
@@ -116,6 +119,13 @@
         popup.css("height", "5%");
       }
 
+    </script>
+    
+    <!-- clipboardjs copy -->
+    <script>
+      (function(){
+        new Clipboard('#copy-button');
+      })();
     </script>
     
   </body>
