@@ -144,7 +144,83 @@
                         <div class="col-md-8">
                             <div class="post-content">
 
-                                <h1 class="projectPlanHeader">Shared Programming Challenges</h1>
+                                <h1 class="projectPlanHeader">Multiple users editing and viewing same code document</h1>
+
+                                <p>
+                                    This central feature would allow users to collaborate on the same code document over the internet. Changes made by users would be dynamically synced.
+                                    <br>This feature would require:
+                                </p>
+                                <ol>
+                                    <li>Integration of Firepad API which provides the collaboration feature</li>
+                                    <li>Integration of the Firebase real-time database which Firepad utilizes </li>
+                                </ol>
+                                <p>
+                                    The feasibility of this feature depends on the successful integration of Firepad and Firebase. As both offer detailed documentation and examples, integration should be reasonable.
+                                    <br>As this is the central feature of our project, the rest of the project's features depend on this feature. 
+                                </p>
+
+
+                                <h1 class="projectPlanHeader">Users can create and log into an account</h1>
+
+                                <p>
+                                    This feature would allow users to create an account for Codetivity by linking their Google, Facebook or Twitter account to Codetivity. 
+                                    <br>This feature would require:
+                                </p>
+                                <ol>
+                                    <li>Integration of Firebase, which offers support for account creation and authentication using Google, Facebook or Twitter accounts</li>
+                                </ol>
+                                <p>
+                                    Since Firebase offers account creation and authentication support, this feature is feasible.
+                                    <br>Other features such as saving theme options and storing files to a user's account depend on this feature.
+                                </p>
+
+                                <h1 class="projectPlanHeader">Storing files to an account and viewing/downloading them</h1>
+
+                                <p>
+                                    This feature would allow users who have an account to upload their files to their account. They would be able to view/download them at a later date.
+                                    <br>This feature would require:
+                                </p>
+                                <ol>
+                                    <li>Implementation of user accounts feature</li>
+                                    <li>Integration of Firebase as it offers free storage for websites</li>
+                                </ol>
+                                <p>
+                                    This feature depends on being able to upload files to cloud storage and link those files to specific user accounts.If Firebase integration and account creation is successful, this feature should be feasible.
+                                    <br>Other features do not depend on this feature.
+                                </p>
+
+                                <h1 class="projectPlanHeader">Selection of themes to choose from for website and code editor</h1>
+
+                                <p>
+                                    This feature would allow users to choose from a selection of themes that would change the look fo the code editor and the website. The user would be able to save these preferences to their account.
+                                    <br>This feature would require:
+                                </p>
+                                <ol>
+                                    <li>Integration of the Firepad code editor which offers theme selection through its API</li>
+                                    <li>Implementation of user account and preference storage</li>
+                                    <li>Changing CSS of website on demand </li>
+                                </ol>
+                                <p>
+                                    If Firepad integration and user account implementation is successful, this feature should be feasible, as changing the code editor theme is provided by Firepad.
+                                    <br>Other features do not depend on this feature.
+                                </p>
+
+                                <h1 class="projectPlanHeader">Users can partake in a real-time chat with collaborations</h1>
+
+                                <p>
+                                    This feature would allow users to have a real-time chat with other collaborators working on the code document. 
+                                    <br>This feature would require:
+                                </p>
+                                <ol>
+                                    <li>Implementation of Firebase which offers a chat feature utilizing their real-time database</li>
+                                    <li>Access to the browser session of other users working on the code document to ensure the correct users are in the chat</li>
+                                </ol>
+                                <p>
+                                    If Firebase and user account integration are successful, this feature should be feasible.
+                                    <br>Other features do not depend on this feature.
+                                </p>                                
+
+                                <h1 class="projectPlanHeader">Shared Programming Challenges (Advanced)</h1>
 
                                 <p>
                                     This feature will add the ability to view a shared text document with other collaborators. This would be a collapsible pane that displays the text document. The idea is for collaborators to work on the same problem together and be able to seamlessly view the challenge right from Codetivity.
@@ -160,7 +236,7 @@
                                     <br>The shared programming challenge is an additional feature that none of the core features of Codetivity depend upon.
                                 </p>
 
-                                <h1 class="projectPlanHeader">Embedded Javascript Execution</h1>
+                                <h1 class="projectPlanHeader">Embedded Javascript Execution (Advanced)</h1>
 
                                 <p>
                                     This feature would allow users to use the Javascript engine in their browser to execute and view the output of Javascript code they’ve written. The output would appear in a separate pane, either beside or below the editor. This feature would allow users to test their code for proper output right inside Codetivity.
@@ -174,7 +250,7 @@
                                     <br>
                                 </p>
 
-                                <h1 class="projectPlanHeader">Integrated Video Conferencing</h1>
+                                <h1 class="projectPlanHeader">Integrated Video Conferencing (Advanced)</h1>
 
                                 <p>
                                     This feature will allow collaborators to engage in a video/audio conference, using their browser, right from Codetivity! Specifically, the WebRTC API allows modern HTML5 browsers (Chrome, Firefox) to engage in video/audio chat from the browser.
