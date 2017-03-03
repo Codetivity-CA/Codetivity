@@ -75,7 +75,8 @@ function getFileHash() {
 // Function to download data to a file
 function saveFile() {
     var data = codeMirror.getValue();
-    var filename = "test";
+    var filename = prompt("Set file name:");
+      if(!filename) return;
     var type = "text/plain;charset=utf-8";
     var a = document.createElement("a"),
         file = new Blob([data], {type: type});
