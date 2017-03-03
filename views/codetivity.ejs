@@ -96,5 +96,13 @@
       }
 
     </script>
+    <script>
+      window.onkeydown = function(e) {
+        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {//override ctrl + s
+          e.preventDefault();
+          saveFile();
+        }
+      }
+    </script>
   </body>
 </html>

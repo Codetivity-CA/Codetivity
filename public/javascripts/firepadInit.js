@@ -49,5 +49,29 @@ function getExampleRef() {
 }
 
 function getText(){
-    alert(codeMirror.getValue());
+    return codeMirror.getValue();
+}
+
+function saveFile(){
+  var textContents = codeMirror.getValue(); // i think in the project editor was called codeMirror
+  var fileAsBlob = new Blob([textContents], {type:"text/plain;charset=utf-8"});
+  var fileName = prompt("Enter the name of file"); // user can put the desired extension
+  if(!fileName) return;
+  var downloadLink = document.createElement("a");
+  downloadLink.download = fileName;
+  downloadLink.innerHTML = "Download File";
+  if (window.webkitURL != null){
+      // Chrome allows the link to be clicked
+      // without actually adding it to the DOM.
+      downloadLink.href = window.webkitURL.createObjectURL(fileAsBlob);
+  }
+  else{
+      // Firefox requires the link to be added to the DOM
+      // before it can be clicked.
+      downloadLink.href = window.URL.createObjectURL(fileAsBlob);
+      downloadLink.onclick = destroyClickedElement;
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+  }
+  downloadLink.click();
 }
