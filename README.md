@@ -3,8 +3,7 @@ Real-time collaborative web-based code editor
 
 ## How to Run
 #### First, make sure you have the dependencies installed
-1. If you don't have npm and NodeJS installed:
-    - First, check if you have NodeJS and npm installed by running `npm --version` in your terminal.
+1. Check if you have NodeJS and npm installed by running `npm --version` in your terminal.
     - If you don't have NodeJS and npm installed, follow [this link](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) to get it on MacOSX.
     - If you already have it, be sure to update your npm to the latest version by running `sudo npm install npm -g`.
 2. Next, be sure to install all dependencies by running `npm install`. By default, this command will install all modules listed as dependencies in `package.json`.
