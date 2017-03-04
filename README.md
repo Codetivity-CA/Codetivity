@@ -5,7 +5,7 @@ Real-time collaborative web-based code editor.<br>
 
 ## How to Run
 
-First, if you don't have git, install it [here](https://git-scm.com/downloads). Now, run `git clone https://github.com/abhathal/Codetivity.git` in your terminal, and then change your directory to `Codetivity/`.
+First, if you don't have git, install it [here](https://git-scm.com/downloads). Now, open your terminal and in a directory of your choice run `git clone https://github.com/abhathal/Codetivity.git`, then change your directory to `Codetivity/`.
 
 #### Next, make sure you have the dependencies installed:
 1. Check if you have NodeJS and npm installed by running `npm --version` in your terminal/command line.
@@ -15,7 +15,7 @@ First, if you don't have git, install it [here](https://git-scm.com/downloads). 
 3. If you run into issues, try installing the dependencies individually by running `npm install <module name>`.
 
 #### Then, run the project:
-2. Ensure your in `/Codetivity/` and execute `npm start` command.
+2. Ensure your in `Codetivity/` and execute `npm start` command.
 2. Open 'localhost:3000' in your browser to view Codetivity
 
 #### Note:
