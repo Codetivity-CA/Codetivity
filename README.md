@@ -8,9 +8,10 @@ Real-time collaborative web-based code editor
     - If you don't have NodeJS and npm installed, follow [this link](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) to get it on MacOSX.
     - Be sure to update your npm to the latest version by running `sudo npm install npm -g`.
 2. Once you know you have npm and NodeJS, be sure to install express by running `npm install express`.
+3. If you later run into issues, make sure you have all dependencies installed. The `package.json` file lists all the required dependencies.
 
-
-1. In your terminal, change your directory to /Codetivity/
+#### Then, run the project
+1. In your terminal, change your directory to `Codetivity/`
 2. Execute 'npm start' command.
 2. Open 'localhost:3000' in your browser to view Codetivity
 
