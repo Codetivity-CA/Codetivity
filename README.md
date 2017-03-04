@@ -1,6 +1,6 @@
 # Codetivity
 Real-time collaborative web-based code editor.<br>
-[Codetivity →](https://codetivity.herokuapp.com/)<br>
+[Codetivity Website →](https://codetivity.herokuapp.com/)<br>
 [Team Website →](https://abhathal.github.io/Codetivity)
 
 ## How to Run
