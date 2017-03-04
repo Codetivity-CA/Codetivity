@@ -15,7 +15,7 @@ First, if you don't have git, install it [here](https://git-scm.com/downloads). 
 3. If you run into issues, try installing the dependencies individually by running `npm install <module name>`.
 
 #### Then, run the project:
-2. Execute 'npm start' command.
+2. Ensure your in `/Codetivity/` and execute `npm start` command.
 2. Open 'localhost:3000' in your browser to view Codetivity
 
 #### Note:
