@@ -3,7 +3,7 @@ Real-time collaborative web-based code editor
 
 ## How to Run
 
-1. In your terminal, change your directory to `Codetivity/`
+Run `git clone https://github.com/abhathal/Codetivity.git` in your terminal, and then change your directory to `Codetivity/`.
 
 #### First, make sure you have the dependencies installed
 1. Check if you have NodeJS and npm installed by running `npm --version` in your terminal/command line.
