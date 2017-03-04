@@ -1,5 +1,7 @@
 # Codetivity
-Real-time collaborative web-based code editor 
+Real-time collaborative web-based code editor.<br>
+[Codetivity Website →](https://codetivity.herokuapp.com/)<br>
+[Project Writeup →](https://abhathal.github.io/Codetivity)
 
 ## How to Run
 
