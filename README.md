@@ -6,14 +6,17 @@ Real-time collaborative web-based code editor
 1. If you don't have npm and NodeJS installed:
     - First, check if you have NodeJS and npm installed by running `npm --version` in your terminal.
     - If you don't have NodeJS and npm installed, follow [this link](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) to get it on MacOSX.
-    - Be sure to update your npm to the latest version by running `sudo npm install npm -g`.
-2. Once you know you have npm and NodeJS, be sure to install express by running `npm install express`.
-3. If you later run into issues, make sure you have all dependencies installed. The `package.json` file lists all the required dependencies.
+    - If you already have it, be sure to update your npm to the latest version by running `sudo npm install npm -g`.
+2. Next, be sure to install all dependencies by running `npm install`. By default, this command will install all modules listed as dependencies in `package.json`.
+3. If you run into issues, try installing the dependencies individually by running `npm install <module name>`.
 
 #### Then, run the project
 1. In your terminal, change your directory to `Codetivity/`
 2. Execute 'npm start' command.
 2. Open 'localhost:3000' in your browser to view Codetivity
+
+#### Note
+The main view is the code editor view. For now, the landing page can be accessed by clicking the 'Codetivity' logo on the top left. Later, the landing page will be the main page, and the user will have to login or sign up to view the code editor view.
 
 ## MVC file structure
 
