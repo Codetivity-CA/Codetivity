@@ -2,6 +2,9 @@
 Real-time collaborative web-based code editor 
 
 ## How to Run
+
+1. In your terminal, change your directory to `Codetivity/`
+
 #### First, make sure you have the dependencies installed
 1. Check if you have NodeJS and npm installed by running `npm --version` in your terminal/command line.
     - If you don't have NodeJS and npm installed, follow [this link](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) to get it on MacOSX, [this link](http://blog.teamtreehouse.com/install-node-js-npm-windows) to get it on Windows, and [this link](http://blog.teamtreehouse.com/install-node-js-npm-linux) to get it on Linux.
@@ -10,7 +13,6 @@ Real-time collaborative web-based code editor
 3. If you run into issues, try installing the dependencies individually by running `npm install <module name>`.
 
 #### Then, run the project
-1. In your terminal, change your directory to `Codetivity/`
 2. Execute 'npm start' command.
 2. Open 'localhost:3000' in your browser to view Codetivity
 
