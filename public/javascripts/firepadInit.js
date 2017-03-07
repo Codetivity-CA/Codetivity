@@ -24,7 +24,9 @@ function startFirepad(){
   });
 
   //// Create Firepad.
-  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror);
+  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
+    defaultText: '/********************************\n *\t\t\t\t\t\t\t\t*\n *    Welcome to Codetivity!\t*\n *\t\t\t\t\t\t\t\t*\n ********************************/\n\n// TODO: type code here and be awesome'
+  });
 
 }
 
