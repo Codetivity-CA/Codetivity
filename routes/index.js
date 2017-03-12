@@ -19,10 +19,10 @@ router.get('/code', function(req, res) {
     res
         .status(200)
         .render('codetivity', {
-            root: "./",
             title: 'Express'
         });
 });
+
 
 module.exports = router;
 
