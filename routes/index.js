@@ -1,23 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
-// Respond with rendered codetivity.ejs when a GET request is made for '/'
-router.get('/', function(req, res, next) {
-  // THIS IS WHERE IT'S LOOKING FOR THE MAIN PAGE AND RENDERING IT!!!!!!!!!!!!!!!!!!!
-  res.render('codetivity', {
-    title: 'Express'
-  });
+router.get('/home', function(req, res){
+    res
+        .status(200)
+        .sendFile('/views/index.html', { root: "./"});
 });
 
-/**
- * TEST CODE
- */
-router.get('/home', function(req, res){
-        console.log("GET home");
-        res
-            .status(200)
-            .sendFile('/views/mainpage/index.html', { root: "./"});
-    });
+router.get('/login', function(req, res){
+    res
+        .status(200)
+        .sendFile('/views/login.html', { root: "./"});
+});
+
+// Respond with rendered codetivity.ejs when a GET request is made for '/code'
+router.get('/code', function(req, res) {
+    console.log("hey I'm here");
+    res
+        .status(200)
+        .render('codetivity', {
+            root: "./",
+            title: 'Express'
+        });
+});
 
 module.exports = router;
 

@@ -41,13 +41,13 @@ app.set('view engine', 'ejs');
  * Setup middleware
  */
 app.use(function(req, res, next){
-  console.log(req.method, req.url); // Requested method (i.e. get/post) and requested URL
+  console.log(req.method, req.url); // Requested method (i.e. get or post) and requested URL
     next();
 });
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 // Treats the public folder as static content (things to serve to the user)
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'views')));                          
+app.use(express.static(path.join(__dirname, 'views')));
 app.use('/', firebase); // Only runs if request is made in / directory
 app.use('/', index);
 app.use('/users', users);
