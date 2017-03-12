@@ -1,0 +1,28 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.2.2
+[debug] Platform:     darwin
+[debug] Node Version: v7.3.0
+[debug] Time:         Mon Feb 13 2017 19:42:50 GMT-0500 (EST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/alexmadrzyk/DEVELOPMENT/Learning FIREBASE/Friendly-Chat/web-start
+[info] Public Directory: ./
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     darwin
+[debug] Node Version: v7.3.0
+[debug] Time:         Fri Mar 10 2017 13:52:27 GMT-0500 (EST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/alexmadrzyk/DEVELOPMENT/Learning FIREBASE/Friendly-Chat/web-start
+[info] Public Directory: ./
+[info] 
+[info] Server listening at: http://localhost:5000
