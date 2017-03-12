@@ -29,4 +29,4 @@ The main view is the code editor view. For now, the landing page can be accessed
 
 ## Issues we've faced so far
 - User login security: how to prevent users from accessing others' files
-- Setting up Express environment properly 
+- Setting up Express environment properly to work with Firebase
