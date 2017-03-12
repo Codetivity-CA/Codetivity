@@ -30,3 +30,5 @@ $('[data-toggle="popover"]').popover();
 (function(){
     new Clipboard('#copy-button');
 })();
+
+

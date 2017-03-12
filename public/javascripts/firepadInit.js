@@ -22,7 +22,8 @@ function startFirepad(){
 
 // Helper to get hash from end of URL or generate a random one.
 function getFileHash() {
-  var ref = firebase.database().ref();
+    // TODO: implement error checking on currentUser == null
+  var ref = firebase.database().ref( firebase.auth().currentUser.uid );
   var hash = window.location.hash.replace(/#/g, '');
   if (hash) {
     ref = ref.child(hash);

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
 
   </head>
-  <body ng-controller= 'myController' onload="startFirepad()">
+  <body ng-controller= 'myController' onload="startFirepad(); ">
     <!--<h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p> -->
@@ -111,6 +111,16 @@
     <script src="/javascripts/firebaseConfig.js"></script>
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                alert(JSON.stringify(user));
+            } else {
+                // No user is signed in.
+            }
+        });
+     </script>
 
   </body>
 </html>

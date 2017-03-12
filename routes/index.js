@@ -23,6 +23,12 @@ router.get('/code', function(req, res) {
         });
 });
 
+router.get('/testLogin', function(req, res){
+    res
+        .status(200)
+        .sendFile('/views/testLogin.html', { root: "./" });
+});
+
 
 module.exports = router;
 
