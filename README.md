@@ -27,3 +27,6 @@ The main view is the code editor view. For now, the landing page can be accessed
 - **View** `/views/` – Rendered expressJS view (what the client-side sees)
 - **Controller** `/public/javascripts` – Angular javascript code that controls the view
 
+## Issues we've faced so far
+- User login security: how to prevent users from accessing others' files
+- Setting up Express environment properly 
