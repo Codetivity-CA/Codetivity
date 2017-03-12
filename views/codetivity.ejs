@@ -96,38 +96,20 @@
     <div id="onlineMembers">+ Online Members</div>
     <div id="footer"></div>
 
+
+
+
+
+
+
+
+
     <!-- jQuery (for Bootstrap's JavaScript plugins) + Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="/javascripts/firebase.js"></script>
     <script src="/javascripts/firepadInit.js"></script>
-    <script >
-      var onlineMembers = $("#onlineMembers");
-      var popup = $("#popup");
-
-      onlineMembers.hover(pushUp, pushDown);
-      popup.hover(pushUp, pushDown)
-
-      function pushUp(){
-        onlineMembers.css("bottom", "10%");
-        popup.css("height", "10%");
-      }
-
-      function pushDown(){
-        onlineMembers.css("bottom", "5%");
-        popup.css("height", "5%");
-      }
-
-
-      $('[data-toggle="popover"]').popover();   
-    </script>
-    
-    <!-- clipboardjs copy -->
-    <script>
-      (function(){
-        new Clipboard('#copy-button');
-      })();
-    </script>
+    <script src="/javascripts/codetivity.js"></script>
 
   </body>
 </html>

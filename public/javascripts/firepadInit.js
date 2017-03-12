@@ -3,16 +3,6 @@ var codeMirror;
 
 function startFirepad(){
 
-  // Initialize Firebase
-  var settings = {
-      apiKey: "AIzaSyB3QZBjTDzoG50Aq-7sOwPfDTS7MGNKBO8",
-      authDomain: "codetivity-89e7c.firebaseapp.com",
-      databaseURL: "https://codetivity-89e7c.firebaseio.com",
-      storageBucket: "codetivity-89e7c.appspot.com",
-      messagingSenderId: "1022467561792"
-  };
-  firebase.initializeApp(settings);
-
   //// Get Firebase Database reference.
   // THIS IS THE HASH CODE???
   var firepadRef = getFileHash();
