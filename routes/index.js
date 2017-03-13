@@ -15,7 +15,6 @@ router.get('/login', function(req, res){
 
 // Respond with rendered codetivity.ejs when a GET request is made for '/code'
 router.get('/code', function(req, res) {
-    console.log("hey I'm here");
     res
         .status(200)
         .render('codetivity', {
