@@ -1,49 +1,78 @@
 
+/**
+ * Global Variables
+ */
 var codeMirror;
 
+
+/**
+ * Starts up firepad loading once logged-in user is resolved
+ */
 function startFirepad(){
-
-  //// Get Firebase Database reference.
-  // THIS IS THE HASH CODE???
-  var firepadRef = getFileHash();
-
-  //// Create CodeMirror (with line numbers and the JavaScript mode).
-  codeMirror = CodeMirror(document.getElementById('firepad-container'), {
-    lineNumbers: true,
-    mode: 'javascript'
-  });
-
-  //// Create Firepad.
-  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
-    defaultText: '/********************************\n *\t\t\t\t\t\t\t\t*\n *    Welcome to Codetivity!\t*\n *\t\t\t\t\t\t\t\t*\n ********************************/\n\n// TODO: type code here and be awesome\n'
-  });
-
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // Get Firebase Database reference, and load Firepad using that reference
+            var firepadRef = getFileHash();
+            loadFirepad(firepadRef);
+        }
+        else {
+            alert("You logged out!");
+        }
+    });
 }
 
-// Helper to get hash from end of URL or generate a random one.
+
+/**
+ * Loads firepad on the screen
+ * @param firepadRef – reference to Firepad instance in Firebase database
+ */
+function loadFirepad(firepadRef){
+    // Create an instance of CodeMirror (with line numbers and the JavaScript mode)
+    codeMirror = CodeMirror(document.getElementById('firepad-container'), {
+        lineNumbers: true,
+        mode: 'javascript'
+    });
+
+    // Create Firepad
+    var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
+        defaultText: '/********************************\n *\t\t\t\t\t\t\t\t*\n *    Welcome to Codetivity!\t*\n *\t\t\t\t\t\t\t\t*\n ********************************/\n\n// TODO: type code here and be awesome\n'
+    });
+}
+
+
+/**
+ * Helper function to get hash from end of URL or generate a random one
+ */
 function getFileHash() {
-    // TODO: implement error checking on currentUser == null
-  var ref = firebase.database().ref( firebase.auth().currentUser.uid );
-  var hash = window.location.hash.replace(/#/g, '');
-  if (hash) {
-    ref = ref.child(hash);
-  } else {
-    ref = ref.push(); // generate unique location.
-    window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
-  }
-  if (typeof console !== 'undefined') {
-    console.log('Firebase data: ', ref.toString());
-  }
 
-  $("#shareLink").html(ref.key);
-  $("#shareClickable").attr("href", "https://codetivity.herokuapp.com/#" + ref.key);
-  document.getElementById("linkHolder").value = "https://codetivity.herokuapp.com/#" + ref.key;
+    // Find user id in database
+    var ref = firebase.database().ref( firebase.auth().currentUser.uid );
 
-  return ref;
+    // If hash exists
+    var hash = window.location.hash.replace(/#/g, '');
+    if (hash) {
+        ref = ref.child(hash);
+    }
+    else {
+        ref = ref.push(); // generate unique location.
+        window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+    }
+
+    // Log
+    if (typeof console !== 'undefined') {
+        console.log('Firebase data: ', ref.toString());
+    }
+
+    // Update link holder with link
+    document.getElementById("linkHolder").value = "https://codetivity.herokuapp.com/#" + ref.key;
+
+    return ref;
 }
 
 
-// Function to download data to a file
+/**
+ * Function to download data to a file
+ */
 function saveFile() {
     var data = codeMirror.getValue();
     var filename = prompt("Set file name:");

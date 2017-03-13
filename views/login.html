@@ -7,50 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login – Codetivity</title>
-    <!-- Bootstrap Core CSS -->
+    <title>Login | Codetivity</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-orange.min.css" />
+
     <link href="/stylesheets/login.css" rel="stylesheet">
 </head>
 
 
 <body>
 
-    <section id="hire">
-    <h1>Login</h1>
+    <!-- Colored FAB button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored backButton" onclick="location.href='/';">
+        <i class="material-icons" style="color: white">arrow_back</i>
+    </button>
+
+    <section id="login">
+        <h1>Login</h1>
 
         <form action="/code">
-    	      <div class="field name-box">
-    		        <input type="text" id="name"/>
-            		<label for="name">Full Name</label>
-    		        <span class="ss-icon">check</span>
-    	      </div>
+            <!-- Textfields with Floating Label -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="login1" style="color: #757575">
+                <label class="mdl-textfield__label" for="login1">Username</label>
+            </div>
 
-    	      <div class="field username-box">
-    		        <input type="text" id="username"/>
-    		        <label for="username">Username</label>
-    		        <span class="ss-icon">check</span>
-    	      </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label passInput">
+                <input class="mdl-textfield__input" type="password" id="login2" style="color: #757575">
+                <label class="mdl-textfield__label" for="login2">Password</label>
+            </div>
 
-              <div class="field pass-box">
-    		        <input type="password" id="password"/>
-    		        <label for="password">Password</label>
-    		        <span class="ss-icon">check</span>
-    	      </div>
-
-              <!-- <div class="field msg-box">
-    		        <textarea id="msg" rows="4" placeholder="Your message goes here..."/></textarea>
-    		        <label for="msg">Msg</label>
-    		        <span class="ss-icon">check</span>
-    	      </div> -->
-
-            
-    	       <input class="button" type="submit" value="LOGIN"/>
-            
+            <br>
+            <!-- Accent-colored raised button with ripple -->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
+                type="submit" value="Submit">
+                Submit
+            </button>
         </form>
     </section>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 
 </html>

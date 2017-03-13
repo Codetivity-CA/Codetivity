@@ -1,9 +1,6 @@
-/**
- * Created by alexmadrzyk on 3/11/17.
- */
 
 /**
- * POPUP FOR ONLINE MEMBERS
+ * Popup for online members
  */
 var onlineMembers = $("#onlineMembers");
 var popup = $("#popup");
@@ -25,7 +22,7 @@ $('[data-toggle="popover"]').popover();
 
 
 /**
- * CLIPBOARD COPY
+ * Clipboard copy
  */
 (function(){
     new Clipboard('#copy-button');

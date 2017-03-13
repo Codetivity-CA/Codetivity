@@ -1,8 +1,6 @@
 /**
- * Created by alexmadrzyk on 3/10/17.
+ * Initialize Firebase with the following config settings
  */
-
-// Initialize Firebase
 var settings = {
     apiKey: "AIzaSyB3QZBjTDzoG50Aq-7sOwPfDTS7MGNKBO8",
     authDomain: "codetivity-89e7c.firebaseapp.com",

@@ -26,3 +26,17 @@
 [info] Public Directory: ./
 [info] 
 [info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.5.0
+[debug] Platform:     darwin
+[debug] Node Version: v7.3.0
+[debug] Time:         Sun Mar 12 2017 22:40:18 GMT-0400 (EDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/alexmadrzyk/Google Drive/3rd Year/COMPSCI 2212B/Code-Editor/Codetivity/__loginExample
+[info] Public Directory: ./
+[info] 
+[info] Server listening at: http://localhost:5000

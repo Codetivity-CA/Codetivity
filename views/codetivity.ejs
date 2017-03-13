@@ -112,15 +112,5 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
 
-    <script>
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                alert(JSON.stringify(user));
-            } else {
-                // No user is signed in.
-            }
-        });
-     </script>
-
   </body>
 </html>
