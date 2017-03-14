@@ -8,7 +8,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CodeMirror and its JavaScript mode file -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
     <link rel='stylesheet' href='/stylesheets/codetivity.css' />
 
@@ -27,6 +26,10 @@
           <img id='logo' src='/images/codetivity-logo-blue.png' alt='codetivity logo' height='100%'/>
         </a>
 
+          <div style="height: 100%; display: inline-block; margin-left: 20%">
+              <span id="userName" style="color: black"></span>
+          </div>
+
         <div class='pull-right' style="height: 100%">
           <div class="btn-group" style="height: 100%">
             <button type="button" class="btn btn-default dropdown-toggle settingsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height: 100%">
@@ -37,27 +40,22 @@
               <li><a>Another action</a></li>
               <li><a>Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a>Separated link</a></li>
+              <li><a onclick="toggleSignOut()">Sign Out</a></li>
             </ul>
           </div>
         </div>
         
         <!-- LINK COPY -->
-        <div class='pull-right' style="height: 100%">
-          <div class="input-group linkCopy" style="width: 300px">
-            <input type="text" class="form-control" id="linkHolder" placeholder="Link">
-            <span class="input-group-btn">
-
-              <a data-toggle="popover" data-content="Copied!" data-placement="bottom" data-trigger="focus">
-
-                <button class="btn btn-default" type="button" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" id="copy-button" data-clipboard-target='#linkHolder'><span class='glyphicon glyphicon-copy'></span></button>
-              </a>
-            </span>
-          </div><!-- /input-group -->
-        </div>
-
-        <div class='pull-right' style="height: 100%; padding: 27px 10px 0 0">
-          <span style='color: black; '><b>Share:</b></span>
+        <div class='pull-right linkCopyDiv'>
+            <span style='color: black; float: left; padding: 7% 3% 0 0'><b>Share:</b></span>
+            <div class="input-group linkCopy" style="width: 300px; float: right">
+                <input type="text" class="form-control" id="linkHolder" placeholder="Link">
+                <span class="input-group-btn" style="z-index: 9999">
+                  <a data-toggle="popover" data-content="Copied!" data-placement="bottom" data-trigger="focus">
+                    <button class="btn btn-default" type="button" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: none" id="copy-button" data-clipboard-target='#linkHolder'><span class='glyphicon glyphicon-copy'></span></button>
+                  </a>
+                </span>
+            </div><!-- /input-group -->
         </div>
       </div>
     </header>

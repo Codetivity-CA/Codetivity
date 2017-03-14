@@ -29,3 +29,13 @@ $('[data-toggle="popover"]').popover();
 })();
 
 
+/**
+ * When Sign Out button is Clicked
+ */
+function toggleSignOut(){
+    firebase.auth().signOut().then(function(){
+        $('userName').html('Logged out.');
+        alert("Signed Out");
+        location.href = "/";
+    });
+}

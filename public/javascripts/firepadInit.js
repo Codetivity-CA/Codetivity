@@ -14,9 +14,12 @@ function startFirepad(){
             // Get Firebase Database reference, and load Firepad using that reference
             var firepadRef = getFileHash();
             loadFirepad(firepadRef);
+
+            $("#userName").html('<b>Logged in as:</b>&nbsp;&nbsp;' + firebase.auth().currentUser.email);
         }
         else {
-            alert("You logged out!");
+            alert("Please sign in to view this page.");
+            location.href = '/';
         }
     });
 }

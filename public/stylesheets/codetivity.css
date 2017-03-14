@@ -42,7 +42,7 @@ header{
 }
 
 .linkCopy{
-  padding-top: 6%;
+  padding-top: 5%;
   padding-right: 10px;
 }
 
@@ -67,7 +67,7 @@ header{
 .firepadDiv {
   padding: 0;
   height: 100%;
-  border
+  /*border*/
 }
 
 .powered-by-firepad {
@@ -138,4 +138,10 @@ header{
   z-index: 999;
 }
 
-
+.linkCopyDiv{
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  overflow:hidden;
+}

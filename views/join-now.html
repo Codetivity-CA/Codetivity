@@ -26,40 +26,63 @@
     <section id="join">
         <h1>Sign Up</h1>
 
-        <form action="/code">
-            <!-- Textfields with Floating Label -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="join1" style="color: #757575">
-                <label class="mdl-textfield__label" for="join1">Full Name</label>
-            </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="email" style="color: #757575">
+            <label class="mdl-textfield__label" for="email">E-mail</label>
+        </div>
+        <br>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="join2" style="color: #757575">
-                <label class="mdl-textfield__label" for="join2">Username</label>
-            </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" id="pass1" style="color: #757575">
+            <label class="mdl-textfield__label" for="pass1">Password</label>
+        </div>
+        <br>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="password" id="join3" style="color: #757575">
-                <label class="mdl-textfield__label" for="join3">Password</label>
-            </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label passInput">
+            <input class="mdl-textfield__input" type="password" id="pass2" style="color: #757575">
+            <label class="mdl-textfield__label" for="pass2">Re-Enter Password</label>
+        </div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label passInput">
-                <input class="mdl-textfield__input" type="password" id="join4" style="color: #757575">
-                <label class="mdl-textfield__label" for="join4">Re-Enter Password</label>
-            </div>
-
-            <br>
-            <!-- Accent-colored raised button with ripple -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
-                    type="submit" value="Submit">
-                Join Now
-            </button>
-        </form>
+        <br>
+        <!-- Accent-colored raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
+                value="Submit" id="submit">
+            Join Now
+        </button>
     </section>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script src="/javascripts/firebaseConfig.js"></script>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', handleSignup, false);
+
+        function handleSignup(){
+            document.getElementById('submit').disabled = true;
+
+            var myemail = document.getElementById('email').value;
+            var mypassword = document.getElementById('pass1').value;
+
+            firebase.auth().createUserWithEmailAndPassword(myemail, mypassword)
+                .catch(function (err){
+                    if (err.code == 'auth/weak-password') {
+                        alert('The password is too weak.');
+                    } else {
+                        alert(err.message);
+                    }
+                    document.getElementById('submit').disabled = false;
+                })
+                .then(function(){
+                    if (firebase.auth().currentUser) {
+                        location.href = "/code";
+                    }
+                });
+        }
+    </script>
+
 </body>
 
 </html>

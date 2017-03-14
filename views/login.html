@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | Codetivity</title>
+    <title>Join | Codetivity</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-orange.min.css" />
@@ -18,38 +18,66 @@
 
 <body>
 
-    <!-- Colored FAB button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored backButton" onclick="location.href='/';">
-        <i class="material-icons" style="color: white">arrow_back</i>
+<!-- Colored FAB button with ripple -->
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored backButton" onclick="location.href='/';">
+    <i class="material-icons" style="color: white">arrow_back</i>
+</button>
+
+<section id="login">
+    <h1>Log In</h1>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="emailLogin" style="color: #757575">
+        <label class="mdl-textfield__label" for="emailLogin">E-mail</label>
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" id="passLogin" style="color: #757575">
+        <label class="mdl-textfield__label" for="passLogin">Password</label>
+    </div>
+    <br>
+
+    <br>
+    <!-- Accent-colored raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
+            value="Submit" id="submitButton">
+        Log In
     </button>
+</section>
 
-    <section id="login">
-        <h1>Login</h1>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script src="/javascripts/firebaseConfig.js"></script>
 
-        <form action="/code">
-            <!-- Textfields with Floating Label -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="login1" style="color: #757575">
-                <label class="mdl-textfield__label" for="login1">Username</label>
-            </div>
+<script>
+    document.getElementById('submitButton').addEventListener('click', handleLogin, false);
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label passInput">
-                <input class="mdl-textfield__input" type="password" id="login2" style="color: #757575">
-                <label class="mdl-textfield__label" for="login2">Password</label>
-            </div>
+    function handleLogin(){
+        document.getElementById('submitButton').disabled = true;
 
-            <br>
-            <!-- Accent-colored raised button with ripple -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
-                type="submit" value="Submit">
-                Submit
-            </button>
-        </form>
-    </section>
+        var myemail = document.getElementById('emailLogin').value;
+        var mypassword = document.getElementById('passLogin').value;
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        firebase.auth().signInWithEmailAndPassword(myemail, mypassword)
+            .catch(function (err){
+                if (err.code == 'auth/wrong-password') {
+                    alert('Wrong password.');
+                } else {
+                    alert(err.message);
+                }
+                document.getElementById('submitButton').disabled = false;
+            })
+            .then(function(){
+                if(firebase.auth().currentUser) {
+                    location.href = "/code";
+                }
+            });
+    }
+</script>
+
 </body>
 
 </html>
