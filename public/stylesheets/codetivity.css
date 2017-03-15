@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.3em "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0; 
   height: 100%;
   position: relative;
@@ -45,6 +45,13 @@ header{
   padding-top: 5%;
   padding-right: 10px;
 }
+.linkCopyDiv{
+  position: absolute;
+  top: 0;
+  right: 5%;
+  overflow:hidden;
+  
+}
 
 .popover{
   padding-top: 5px;
@@ -54,7 +61,16 @@ header{
 .popover.bottom .arrow:after {
   border-bottom-color: #3e3e3b;
 }
-
+.leftHeader{
+  width: 100%;
+  color: white;
+  background-color: #0288d1;
+  height: 3.5%;
+}
+.leftSection{
+  width: 100%;
+  height: 45%;
+}
 
 
 /* ==================================== Firepad =================================== */
@@ -138,10 +154,4 @@ header{
   z-index: 999;
 }
 
-.linkCopyDiv{
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 5%;
-  overflow:hidden;
-}
+
