@@ -49,7 +49,7 @@ function loadFirepad(firepadRef){
 function getFileHash() {
 
     // Find user id in database
-    var ref = firebase.database().ref( firebase.auth().currentUser.uid );
+    var ref = firebase.database().ref();
 
     // If hash exists
     var hash = window.location.hash.replace(/#/g, '');
