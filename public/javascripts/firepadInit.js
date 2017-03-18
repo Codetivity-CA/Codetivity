@@ -13,6 +13,7 @@ function startFirepad(){
         if (user) {
             // Get Firebase Database reference, and load Firepad using that reference
             var firepadRef = getFileHash();
+
             loadFirepad(firepadRef);
 
             $("#userName").html('<b>Logged in as:</b>&nbsp;&nbsp;' + firebase.auth().currentUser.email);
@@ -30,6 +31,7 @@ function startFirepad(){
  * @param firepadRef – reference to Firepad instance in Firebase database
  */
 function loadFirepad(firepadRef){
+    var userId = Math.floor(Math.random() * 9999999999).toString();
     // Create an instance of CodeMirror (with line numbers and the JavaScript mode)
     codeMirror = CodeMirror(document.getElementById('firepad-container'), {
         lineNumbers: true,
@@ -38,8 +40,12 @@ function loadFirepad(firepadRef){
 
     // Create Firepad
     var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
-        defaultText: '/********************************\n *\t\t\t\t\t\t\t\t*\n *    Welcome to Codetivity!\t*\n *\t\t\t\t\t\t\t\t*\n ********************************/\n\n// TODO: type code here and be awesome\n'
+        defaultText: '/********************************\n *\t\t\t\t\t\t\t\t*\n *    Welcome to Codetivity!\t*\n *\t\t\t\t\t\t\t\t*\n ********************************/\n\n// TODO: type code here and be awesome\n',
+        userId: userId
     });
+
+    var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
+          document.getElementById('userlist'), userId);
 }
 
 

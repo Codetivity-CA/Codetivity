@@ -14,6 +14,9 @@
     <!-- Firepad -->
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
 
+    <!-- Userlist -->
+    <link rel="stylesheet" href='/stylesheets/firepad-userlist.css' />
+
   </head>
   <body ng-controller= 'myController' onload="startFirepad(); ">
     <!--<h1> {{jsVariable}} </h1>
@@ -73,6 +76,7 @@
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
+              <div id="userlist"></div>
               <div id="firepad-container"></div>
         </div>
       </div>
@@ -108,6 +112,7 @@
     <script src="/javascripts/firebaseConfig.js"></script>
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
+    <script src="/javascripts/firepad-userlist.js"></script>
 
   </body>
 </html>
