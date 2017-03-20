@@ -189,3 +189,9 @@ function saveFile() {
     }
 }
 
+function loadfile(input){
+   var reader = new FileReader();
+   reader.onload = function(e) {
+    codeMirror.setValue(e.target.result);};
+   reader.readAsText(input.files[0]);
+}
