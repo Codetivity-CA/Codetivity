@@ -25,6 +25,7 @@ header{
 }
 #logo{
   padding-left: 30px;
+  vertical-align: inherit;
 }
 
 .border{

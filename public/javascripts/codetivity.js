@@ -21,6 +21,7 @@ function pushDown(){
 $('[data-toggle="popover"]').popover();
 
 
+
 /**
  * Clipboard copy
  */
@@ -29,13 +30,29 @@ $('[data-toggle="popover"]').popover();
 })();
 
 
+
 /**
  * When Sign Out button is Clicked
  */
 function toggleSignOut(){
     firebase.auth().signOut().then(function(){
         $('userName').html('Logged out.');
-        alert("Signed Out");
         location.href = "/";
     });
 }
+
+
+
+/**
+ * Populate files
+ */
+function populateFiles(){
+    var ref = firebase.database().ref( firebase.auth().currentUser.uid);
+    ref.on('value', function(snapshot){
+        snapshot = snapshot.val();
+
+        $('#usersFiles').html( JSON.stringify(Object.keys(snapshot['files'])) );
+        $('#sharedFiles').html( JSON.stringify(Object.keys(snapshot['sharedWithYou'])) );
+    });
+}
+

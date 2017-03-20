@@ -3,6 +3,7 @@
  * Global Variables
  */
 var codeMirror;
+var DEBUG = true;
 
 
 /**
@@ -12,15 +13,13 @@ function startFirepad(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // Get Firebase Database reference, and load Firepad using that reference
-            var firepadRef = getFileHash();
-
-            loadFirepad(firepadRef);
+            getFileHash(loadFirepad);
 
             $("#userName").html('<b>Logged in as:</b>&nbsp;&nbsp;' + firebase.auth().currentUser.email);
         }
         else {
-            alert("Please sign in to view this page.");
-            location.href = '/';
+            alert("Signed out.");
+            location.href = '/login';
         }
     });
 }
@@ -32,6 +31,7 @@ function startFirepad(){
  */
 function loadFirepad(firepadRef){
     var userId = Math.floor(Math.random() * 9999999999).toString();
+
     // Create an instance of CodeMirror (with line numbers and the JavaScript mode)
     codeMirror = CodeMirror(document.getElementById('firepad-container'), {
         lineNumbers: true,
@@ -44,38 +44,67 @@ function loadFirepad(firepadRef){
         userId: userId
     });
 
-    var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
-          document.getElementById('userlist'), userId);
+    FirepadUserList.fromDiv(firepadRef.child('users'), document.getElementById('userlist'), userId);
 }
 
 
 /**
- * Helper function to get hash from end of URL or generate a random one
+ * Helper function to get hash of file to load in Firepad
+ * http://localhost:3000/code?uid=pEF8KpkzmOhFEZl7LcaJMNColqx1&file=-Kfco1fqJ9IW-m0hs5GE
  */
-function getFileHash() {
+function getFileHash(callback) {
 
-    // Find user id in database
-    var ref = firebase.database().ref();
-
-    // If hash exists
-    var hash = window.location.hash.replace(/#/g, '');
-    if (hash) {
-        ref = ref.child(hash);
+    // If params given in URL, decode them
+    var params = window.location.search.substr(1).split('&');
+    var uid, file;
+    if (params != null && params.length == 2){
+        uid = decodeURIComponent(params[0].split('=')[1]);
+        file = decodeURIComponent(params[1].split('=')[1]);
     }
     else {
-        ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + ref.key; // add it as a hash to the URL.
+        uid = firebase.auth().currentUser.uid;
+        file = null;
     }
 
-    // Log
-    if (typeof console !== 'undefined') {
-        console.log('Firebase data: ', ref.toString());
-    }
+    // find user id in database (if it doesn't exist, this will create one)
+    var ref = firebase.database().ref( uid + '/files' );
 
-    // Update link holder with link
-    document.getElementById("linkHolder").value = "https://codetivity.herokuapp.com/#" + ref.key;
+    // loads the file IF it exists in the /files folder, otherwise creates a new one
+    ref.once("value", function(snapshot) {
 
-    return ref;
+        snapshot = snapshot.val();
+        var fileExistsInUid = file && snapshot.hasOwnProperty(file);
+
+        // if file was given in URL, and it exists in database
+        if (fileExistsInUid) {
+            ref = ref.child(file);
+
+            // add link to your shared files if URL does not come from your account
+            if (uid !== firebase.auth().currentUser.uid) {
+                addLinkToFile(uid, file);
+            }
+        }
+        if (!file || file && !fileExistsInUid) {
+            if(file && !fileExistsInUid) {
+                alert("Could not find file specified by link. Creating new file instead.");
+            }
+
+            // generate unique location at your own uid
+            ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files' ).push();
+            window.history.pushState(null, null, window.location + '?uid=' + uid + '&file=' + ref.key); // update url
+        }
+
+        // log
+        if (DEBUG && typeof console !== 'undefined') {
+            console.log('Firebase data: ', ref.toString());
+        }
+
+        // update link holder with link
+        document.getElementById("linkHolder").value = 'https://codetivity.herokuapp.com/code?uid=' + uid + '&file=' + ref.key;
+        populateFiles();
+
+        callback(ref);
+    });
 }
 
 
@@ -99,7 +128,57 @@ function saveFile() {
         a.click();
         setTimeout(function() {
             document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);  
+            window.URL.revokeObjectURL(url);
         }, 0); 
     }
 }
+
+
+/**
+ * If you're given a link from a new user / a new file, this will add a reference to it to your account
+ * @param uid – uid of shared file (not your uid)
+ * @param file – link to file belonging to that uid
+ */
+function addLinkToFile(uid, file){
+
+    var ref = firebase.database().ref( firebase.auth().currentUser.uid );
+
+    ref.once('value', function(snapshot) {
+
+        snapshot = snapshot.val();
+
+        // first make sure user has 'sharedWithYou' folder
+        if (!snapshot.hasOwnProperty('sharedWithYou')){
+            if (DEBUG) {
+                alert("Creating shared folder");
+            }
+
+            var newObj = {};
+            newObj['sharedWithYou'] = {};
+            newObj['sharedWithYou'][uid] = [file];
+            ref.update(newObj);
+        }
+        // 'sharedWithYou' already exists
+        else {
+            snapshot = snapshot['sharedWithYou'];
+            ref = ref.child('sharedWithYou');
+
+            // if database contains uid, search its array for file
+            if (snapshot.hasOwnProperty(uid)) {
+                var filesArray = snapshot[uid]; // array of files
+                ref = ref.child(uid);
+
+                // if file not found, add it
+                if ($.inArray(file, filesArray) <= -1) {
+                    filesArray.push(file); // append
+                    ref.set(filesArray); // replace old array in database
+                }
+            }
+            // if database doesn't contain uid, add it
+            else {
+                ref.update({uid: [file]});
+            }
+        }
+    });
+}
+
