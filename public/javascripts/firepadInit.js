@@ -73,7 +73,13 @@ function getFileHash(callback) {
     ref.once("value", function(snapshot) {
 
         snapshot = snapshot.val();
-        var fileExistsInUid = file && snapshot.hasOwnProperty(file);
+        var fileExistsInUid;
+        if (snapshot == null){
+            fileExistsInUid = false;
+        }
+        else {
+            fileExistsInUid = file && snapshot.hasOwnProperty(file);
+        }
 
         // if file was given in URL, and it exists in database
         if (fileExistsInUid) {
@@ -84,14 +90,14 @@ function getFileHash(callback) {
                 addLinkToFile(uid, file);
             }
         }
-        if (!file || file && !fileExistsInUid) {
+        else {
             if(file && !fileExistsInUid) {
                 alert("Could not find file specified by link. Creating new file instead.");
             }
 
             // generate unique location at your own uid
             ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files' ).push();
-            window.history.pushState(null, null, window.location + '?uid=' + uid + '&file=' + ref.key); // update url
+            window.history.pushState(null, null, 'code?uid=' + uid + '&file=' + ref.key); // update url
         }
 
         // log
@@ -109,32 +115,6 @@ function getFileHash(callback) {
 
 
 /**
- * Function to download data to a file
- */
-function saveFile() {
-    var data = codeMirror.getValue();
-    var filename = prompt("Set file name:");
-      if(!filename) return;
-    var type = "text/plain;charset=utf-8";
-    var a = document.createElement("a"),
-        file = new Blob([data], {type: type});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 0); 
-    }
-}
-
-
-/**
  * If you're given a link from a new user / a new file, this will add a reference to it to your account
  * @param uid – uid of shared file (not your uid)
  * @param file – link to file belonging to that uid
@@ -146,6 +126,7 @@ function addLinkToFile(uid, file){
     ref.once('value', function(snapshot) {
 
         snapshot = snapshot.val();
+
 
         // first make sure user has 'sharedWithYou' folder
         if (!snapshot.hasOwnProperty('sharedWithYou')){
@@ -180,5 +161,31 @@ function addLinkToFile(uid, file){
             }
         }
     });
+}
+
+
+/**
+ * Function to download data to a file
+ */
+function saveFile() {
+    var data = codeMirror.getValue();
+    var filename = prompt("Set file name:");
+    if(!filename) return;
+    var type = "text/plain;charset=utf-8";
+    var a = document.createElement("a"),
+        file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
 }
 
