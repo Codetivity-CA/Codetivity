@@ -30,7 +30,7 @@ function startFirepad(){
  * @param firepadRef – reference to Firepad instance in Firebase database
  */
 function loadFirepad(firepadRef){
-    var userId = Math.floor(Math.random() * 9999999999).toString();
+    var userId = firebase.auth().currentUser.uid.toString();
 
     // Create an instance of CodeMirror (with line numbers and the JavaScript mode)
     codeMirror = CodeMirror(document.getElementById('firepad-container'), {
@@ -44,7 +44,7 @@ function loadFirepad(firepadRef){
         userId: userId
     });
 
-    FirepadUserList.fromDiv(firepadRef.child('users'), document.getElementById('userlist'), userId);
+    FirepadUserList.fromDiv(firepadRef.child('users'), document.getElementById('popup'), userId);
 }
 
 
