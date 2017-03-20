@@ -52,7 +52,7 @@ function populateFiles(){
         snapshot = snapshot.val();
 
         $('#usersFiles').html( JSON.stringify(Object.keys(snapshot['files'])) );
-        $('#sharedFiles').html( JSON.stringify(Object.keys(snapshot['sharedWithYou'])) );
+        $('#sharedFiles').html( JSON.stringify(snapshot['sharedWithYou']) );
     });
 }
 
