@@ -3,15 +3,13 @@ var FirepadUserList = (function() {
     if (!(this instanceof FirepadUserList)) {
       return new FirepadUserList(ref, place, userId, displayName);
     }
-
     this.ref_ = ref;
     this.userId_ = userId;
     this.place_ = place;
     this.firebaseCallbacks_ = [];
-
     var self = this;
     this.hasName_ = !!displayName;
-    this.displayName_ = displayName || 'Guest ' + Math.floor(Math.random() * 1000);
+    this.displayName_ = displayName || firebase.auth().currentUser.email.toString().replace(/@(.*)/, '');
     this.firebaseOn_(ref.root.child('.info/connected'), 'value', function(s) {
       if (s.val() === true && self.displayName_) {
         var nameRef = ref.child(self.userId_).child('name');
@@ -72,7 +70,7 @@ var FirepadUserList = (function() {
     nameInput.value = this.displayName_;
 
     var nameHint = elt('div', 'ENTER YOUR NAME', { 'class': 'firepad-userlist-name-hint'} );
-    if (this.hasName_) nameHint.style.display = 'none';
+    nameHint.style.display = 'none';
 
     // Update Firebase when name changes.
     var self = this;

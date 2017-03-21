@@ -72,11 +72,13 @@
           <div class="leftSection">
             Your files: <div id="usersFiles"></div><br>
             Files shared with you: <div id="sharedFiles"></div>
+            <br>
+            Upload your code: <input id="toup" type="file" onchange="loadfile(this)" style='display: initial'><br>
+            Download your code: <button onclick="saveFile()">Click me to download</button><br>
           </div>
           <div class="leftHeader">Chat</div>
           <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br>
-              <button onclick="saveFile()">Click to download current document</button><br>
-              <br>You can start coding on the right or <strong>upload</strong> your files by dragging and dropping them <strong><em>in the coding window</em></strong>
+              
           </div>
         </div>
         <!-- CODE VIEW -->
