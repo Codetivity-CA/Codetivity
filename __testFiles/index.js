@@ -1,3 +1,6 @@
+/**
+ * Created by alexmadrzyk on 3/21/17.
+ */
 
 /**
  * NOTE: There's a "your files" view, and a "shared with you" view.
@@ -10,9 +13,9 @@
  */
 var yourFiles = [];
 var sharedWithYou = [];
-for (var i = 1; i < 9; i++){
-	yourFiles.push('File' + i);
-	sharedWithYou.push('Shared' + i);
+for (var i = 1; i < 26; i++){
+    yourFiles.push('File' + i);
+    sharedWithYou.push('Shared' + i);
 }
 
 /**
@@ -21,18 +24,24 @@ for (var i = 1; i < 9; i++){
  * - Then it gets a reference to the file div
  * - Lastly it loops through your file array, and appends an h6 element to the end of the div's contents
  */
-$(document).ready(function(){
-	var fileDiv = $('#fileDiv');
 
-	for (var i = 0; i < yourFiles.length; i++){
-		fileDiv.append('<h6>' + yourFiles[i] + '</h6>');
-	}
+$(function(){
+    var fileDiv = $('#left');
 
-	fileDiv.append('<h4>Files Shared with You</h4>');
+    fileDiv.append('<div><div id="yourFilesHeader" class="section-header" data-stickonscroll="yourFilesHeader" data-stickyType="element">' +
+        '<h2>Your Files</h2>' +
+        '</div></div>');
 
-	for (i = 0; i < sharedWithYou.length; i++){
-		fileDiv.append('<h6>' + sharedWithYou[i] + '</h6>');
-	}
+    for (var i = 0; i < yourFiles.length; i++){
+        fileDiv.append('<h5>' + yourFiles[i] + '</h5>');
+    }
 
+    fileDiv.append('<div><div id="sharedWithYouHeader" class="section-header" data-stickonscroll="sharedWithYouHeader" data-stickyType="element">' +
+        '<h2>Files Shared with You</h2>' +
+        '</div></div>');
 
+    for (i = 0; i < sharedWithYou.length; i++){
+        fileDiv.append('<h5>' + sharedWithYou[i] + '</h5>');
+    }
 });
+
