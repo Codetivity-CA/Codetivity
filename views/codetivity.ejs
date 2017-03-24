@@ -18,7 +18,7 @@
     <link rel="stylesheet" href='/stylesheets/firepad-userlist.css' />
 
   </head>
-  <body ng-controller= 'myController' onload="startFirepad(); ">
+  <body ng-controller= 'myController' onload="startFirepad();">
     <!--<h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p> -->
@@ -77,8 +77,14 @@
             Download your code: <button onclick="saveFile()">Click me to download</button><br>
           </div>
           <div class="leftHeader">Chat</div>
-          <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br>
-              
+          <div id="message" class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br>
+            <!-- CHAT BEGINS -->
+            <form id="message-form" action="#">
+              <div class="message-form-wrapper">
+                <input class="message-form-input" type="text" id="message2">
+              </div>
+              <button id="submit" class="message-form-button">Send</button>
+            </form>
           </div>
         </div>
         <!-- CODE VIEW -->
@@ -120,6 +126,7 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
+    <script src="/javascripts/ChatApp.js"></script>
 
   </body>
 </html>

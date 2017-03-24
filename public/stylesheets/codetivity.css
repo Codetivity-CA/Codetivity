@@ -156,4 +156,22 @@ header{
   z-index: 999;
 }
 
+/* ======================Chat================================================== */
+
+.message-form-wrapper{
+  text-align: left;
+
+}
+
+.message-form-input{
+  position: absolute;
+  right: 60%;
+  top: 100%;
+}
+
+.message-form-button{
+  position: absolute;
+  top: 100%;
+}
+
 
