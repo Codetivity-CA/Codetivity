@@ -33,7 +33,7 @@ $(function(){
         '</div></div>');
 
     for (var i = 0; i < yourFiles.length; i++){
-        fileDiv.append('<h5>' + yourFiles[i] + '</h5>');
+        fileDiv.append('<h5>' + ' <i class="material-icons">description</i> ' + yourFiles[i] + '</h5>');
     }
 
     fileDiv.append('<div><div id="sharedWithYouHeader" class="section-header" data-stickonscroll="sharedWithYouHeader" data-stickyType="element">' +
@@ -41,7 +41,7 @@ $(function(){
         '</div></div>');
 
     for (i = 0; i < sharedWithYou.length; i++){
-        fileDiv.append('<h5>' + sharedWithYou[i] + '</h5>');
+        fileDiv.append('<h5>' + ' <i class="material-icons">description</i> ' + sharedWithYou[i] + '</h5>');
     }
 });
 

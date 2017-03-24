@@ -2,29 +2,15 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript" src="jquery.min.js"></script>
         <script src="index.js"></script>
         <script type="text/javascript" src="jquery.stickOnScroll.js"></script>
-        <script>
-            $(function() {
-                $("#yourFilesHeader")
-                    .stickOnScroll({
-                        viewport:           $("#left"),
-                        footerElement:      $("#sharedWithYouHeader").parent(),
-                        setParentOnStick:   true,
-                        setWidthOnStick:    true
-                    });
-                $("#sharedWithYouHeader")
-                    .stickOnScroll({
-                        viewport:           $("#left"),
-                        setParentOnStick:   true,
-                        setWidthOnStick:    true
-                    });
-            });
-        </script>
         <style>
             html, body {
                 background-color: #0288D1;
+                font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+
             }
 
             .container{
@@ -34,7 +20,7 @@
             }
 
             .fileRow h2 {
-                background-color: #0288d1;
+                background-color: #0071bc;
                 margin: 0;
                 color: white;
             }
@@ -43,16 +29,9 @@
                 margin-top: 9%;
                  padding: 0;
              }
-
-            #body_container:after {
-                content: "";
-                display: table;
-                line-height: 0;
-                clear: both;
-            }
             #left {
-                float: left;
-                left: 0;
+                /*float: left;*/
+                /*left: 0;*/
                 width: 100%;
                 background-color: white;
                 border: 3px solid blue;
@@ -76,4 +55,21 @@
             </div>
         </div>
     </body>
+    <script>
+        $(function() {
+            $("#yourFilesHeader")
+                .stickOnScroll({
+                    viewport:           $("#left"),
+                    footerElement:      $("#sharedWithYouHeader").parent(),
+                    setParentOnStick:   true,
+                    setWidthOnStick:    true
+                });
+            $("#sharedWithYouHeader")
+                .stickOnScroll({
+                    viewport:           $("#left"),
+                    setParentOnStick:   true,
+                    setWidthOnStick:    true
+                });
+        });
+    </script>
 </html>

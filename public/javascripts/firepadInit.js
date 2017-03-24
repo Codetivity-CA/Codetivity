@@ -30,6 +30,8 @@ function startFirepad(){
  * @param firepadRef – reference to Firepad instance in Firebase database
  */
 function loadFirepad(firepadRef){
+    $('.firepad-container').empty();
+
     var userId = firebase.auth().currentUser.uid.toString();
 
     // Create an instance of CodeMirror (with line numbers and the JavaScript mode)
@@ -98,6 +100,9 @@ function getFileHash(callback) {
             // generate unique location at your own uid
             ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files' ).push();
             window.history.pushState(null, null, 'code?uid=' + uid + '&file=' + ref.key); // update url
+
+            // Name file something
+            firebase.database().ref( firebase.auth().currentUser.uid + '/files/' + ref.key ).update({'name' : 'New File'});
         }
 
         // log

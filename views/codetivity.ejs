@@ -6,6 +6,7 @@
 
      <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CodeMirror and its JavaScript mode file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
@@ -16,6 +17,14 @@
 
     <!-- Userlist -->
     <link rel="stylesheet" href='/stylesheets/firepad-userlist.css' />
+
+    <!-- Bootstrap Editable Filenames -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+
+    <style>
+
+
+    </style>
 
   </head>
   <body ng-controller= 'myController' onload="startFirepad(); ">
@@ -69,36 +78,31 @@
         <!-- SIDEBAR -->
         <div class="col-xs-4 border" style='padding: 0; height: 100%;'>
           <div class="leftHeader">Files</div>
-          <div class="leftSection">
-            Your files: <div id="usersFiles"></div><br>
-            Files shared with you: <div id="sharedFiles"></div>
-            <br>
-            Upload your code: <input id="toup" type="file" onchange="loadfile(this)" style='display: initial'><br>
-            Download your code: <button onclick="saveFile()">Click me to download</button><br>
+          <div class="leftSection isViewport" id="left">
+
+
+
+
+
+            <!--Your files: <div id="usersFiles"></div><br>-->
+            <!--Files shared with you: <div id="sharedFiles"></div>-->
+            <!--<br>-->
+            <!--Upload your code: <input id="toup" type="file" onchange="loadfile(this)" style='display: initial'><br>-->
+            <!--Download your code: <button onclick="saveFile()">Click me to download</button><br>-->
           </div>
           <div class="leftHeader">Chat</div>
-          <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br>
-              
-          </div>
+          <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br></div>
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
-              <div id="userlist"></div>
-              <div id="firepad-container"></div>
+          <div id="userlist"></div>
+          <div id="firepad-container"></div>
         </div>
       </div>
     </div>
     <div id="popup"></div>
     <div id="onlineMembers">+ Online Members</div>
     <div id="footer"></div>
-
-
-
-
-
-
-
-
 
     <!-- jQuery (for Bootstrap's JavaScript plugins) + Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -107,6 +111,8 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/javascript/javascript.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
 
     <!-- clipboardjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
@@ -120,6 +126,5 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
-
   </body>
 </html>
