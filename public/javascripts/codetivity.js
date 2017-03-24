@@ -14,8 +14,8 @@ function pushUp(){
 }
 
 function pushDown(){
-    onlineMembers.css("bottom", "1%");
-    popup.css("height", "1%");
+    onlineMembers.css("bottom", "0%");
+    popup.css("height", "0%");
 }
 
 $('[data-toggle="popover"]').popover();
