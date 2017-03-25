@@ -38,8 +38,26 @@
     </div>
     <br>
 
-    <p style="color:#808080;">Forgot Password?</p>
+<a href="#" onclick="forgotPassword()">Forgot password</a>
+   <script>
+       document.getElementById('submit').addEventListener('click', forgotPassword, false);
 
+       function forgotPassword(){
+          var email = document.getElementById('emailLogin').value;
+          firebase.auth().sendPasswordResetEmail(email).then(function() {
+              // Password Reset Email Sent!
+              // [START_EXCLUDE]
+              alert('Password Reset Email Sent!');
+              // [END_EXCLUDE]
+          }).catch(function(error) {
+             alert(error);
+              console.log(error);
+              // [END_EXCLUDE]
+          });
+          // [END sendpasswordemail];
+      }
+
+   </script>
     <br>
     <!-- Accent-colored raised button with ripple -->
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent submitButton"
