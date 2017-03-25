@@ -79,11 +79,6 @@
         <div class="col-xs-4 border" style='padding: 0; height: 100%;'>
           <div class="leftHeader">Files</div>
           <div class="leftSection isViewport" id="left">
-
-
-
-
-
             <!--Your files: <div id="usersFiles"></div><br>-->
             <!--Files shared with you: <div id="sharedFiles"></div>-->
             <!--<br>-->
@@ -91,7 +86,29 @@
             <!--Download your code: <button onclick="saveFile()">Click me to download</button><br>-->
           </div>
           <div class="leftHeader">Chat</div>
-          <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br></div>
+          <div class="leftSection">
+
+
+
+
+
+
+            <div id="left" class="isViewport">
+              <li style="list-style: none;" ng-repeat="message in messages">
+                {{user}}: {{message.text}}
+              </li>
+            </div>
+            <div id="newMessage">
+              <input type="text" id="messageField" ng-model="newmessage.text">
+              <button id="sendMessage" ng-click="insert(newmessage)">Send</button>
+            </div>
+
+
+
+
+
+
+          </div>
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
