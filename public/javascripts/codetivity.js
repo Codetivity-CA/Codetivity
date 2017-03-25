@@ -46,6 +46,12 @@ function toggleSignOut(){
 /**
  * Populate files
  */
+var currentFile;
+
+function shareCurrentHash(key){
+    currentFile = key;
+}
+
 function populateFiles(){
     var ref = firebase.database().ref( firebase.auth().currentUser.uid );
     ref.on('value', function(snapshot){
@@ -60,10 +66,13 @@ function showFilesOnScreen(snapshot){
     var files = snapshot['files'];
     var shared = snapshot['sharedWithYou']; // All shared file keys
 
-    // POPULATE FILES
-    fileDiv.append('<div><div id="yourFilesHeader" class="section-header" data-stickonscroll="yourFilesHeader" data-stickyType="element">' +
-        '<h2>&nbsp;Your Files</h2>' +
-        '</div></div>');
+    // ******* YOUR FILES HEADER ***************************************************************************************
+    fileDiv.append(
+        '<div>' +
+            '<div id="yourFilesHeader" class="section-header">' +
+                '<h2>&nbsp;Your Files</h2>' +
+            '</div>' +
+        '</div>');
 
     // loop through files
     Object.keys(files).forEach(function(key,index){
@@ -74,27 +83,30 @@ function showFilesOnScreen(snapshot){
         else name = 'BLEH';
 
         fileDiv.append(
-            '<h5 class="hoverFile">' +
+            '<h5 class="hoverFile nonSharedFile" id=\''+ key +'\'>' +
                 '<i class="material-icons">description</i>' +
-                '<a href="#" data-type="text" data-container="body" data-title="Enter File Name" class="editableName">' + name + '</a>' +
+                '<a href="#" id=\''+ key +'\'data-type="text" data-container="body" data-title="Enter File Name" class="editableName">' + name + '</a>' +
             '</h5>');
     });
 
-
-    fileDiv.append('<div><div id="sharedWithYouHeader" class="section-header" data-stickonscroll="sharedWithYouHeader" data-stickyType="element">' +
-        '<h2>&nbsp;Files Shared with You</h2>' +
-        '</div></div>');
+    // ******* SHARED FILE HEADER **************************************************************************************
+    fileDiv.append(
+        '<div>' +
+            '<div id="sharedWithYouHeader" class="section-header">' +
+                '<h2>&nbsp;Files Shared with You</h2>' +
+            '</div>' +
+        '</div>');
 
     // loop through shared files
     Object.keys(shared).forEach(function(key,index){
         var name;
         if (shared[key].hasOwnProperty('name')) name = shared[key]['name'];
-        else name = 'BLEH2';
+        else name = 'New File'; // To actually load other user's file, you need async call (we didn't have time)
 
         fileDiv.append(
-            '<h5 class="hoverFile">' +
+            '<h5 class="hoverFile sharedFile" id=\''+ key +'\'>' +
                 '<i class="material-icons">description</i>' +
-                '<a href="#" data-type="text" data-container="body" data-title="Enter File Name" class="editableName">' + name + '</a>' +
+                '<a href="#" id=\''+ key +'\'data-type="text" data-container="body" data-title="Enter File Name" class="editableSharedName">' + name + '</a>' +
             '</h5>');
     });
 
@@ -102,35 +114,72 @@ function showFilesOnScreen(snapshot){
     $('.editableName').each(function(index, element){
         $(element).editable();
     });
+    $('.editableSharedName').each(function(index, element){
+        $(element).editable();
+    });
 
+    // Add hover to each file
     $('.hoverFile').each(function(index, element){
-        $(element).hover(
-            function(){
-                $(this).css('background-color', '#eeeeee');
-            },
-            function(){
-                $(this).css('background-color', 'white');
-            });
+        if (element.id != currentFile) {
+            $(element)
+                .hover(
+                    function () {
+                        $(this).css('background-color', '#eeeeee');
+                    },
+                    function () {
+                        $(this).css('background-color', 'transparent');
+                    });
+        } else {
+            $(element).css({'background-color': '#3e3e3b', 'color': 'white'});
+        }
     });
 
-    $('.editable-submit').each(function(index, element){
-        $(element).on()
+    $('.nonSharedFile').each(function(index, element) {
+        $(element).on('click', function (e) {
+            if ($(e.target).is('a')) {
+                e.preventDefault();
+                return;
+            }
+            openFile(element.id);
+        });
     });
 
+    $('.sharedFile').each(function(index, element) {
+        $(element).on('click', function (e) {
+            if ($(e.target).is('a')) {
+                e.preventDefault();
+                return;
+            }
+            openSharedFile(shared[element.id], element.id);
+        });
+    });
 
+    // on fileName change, save value to memory
+    $('.editableName').on('save', function(event, params) {
+        var ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files/' + event.target.id );
+        ref.update({'name' : params.newValue});
+        alert(event.target.id);
+    });
 
-    // LINK HEADERS TO STICKY JS
-    // $("#yourFilesHeader")
-    //     .stickOnScroll({
-    //         viewport:           $("#left"),
-    //         footerElement:      $("#sharedWithYouHeader").parent(),
-    //         setParentOnStick:   true,
-    //         setWidthOnStick:    true
-    //     });
-    // $("#sharedWithYouHeader")
-    //     .stickOnScroll({
-    //         viewport:           $("#left"),
-    //         setParentOnStick:   true,
-    //         setWidthOnStick:    true
-    //     });
+    $('.editableSharedName').on('save', function(event, params) {
+        var fileKey = event.target.id;
+        var fileUID = shared[fileKey];
+
+        alert(event.target.id);
+
+        var ref = firebase.database().ref( fileUID + '/files/' + fileKey );
+        ref.update({'name' : params.newValue});
+    });
 }
+
+function openFile(key){
+    window.location = '?uid=' + firebase.auth().currentUser.uid + '&file=' + key;
+}
+
+function openSharedFile(user, key){
+    window.location = '?uid=' + user + '&file=' + key;
+}
+
+$('#downloadBtn').on('click', function(){
+    saveFile();
+});

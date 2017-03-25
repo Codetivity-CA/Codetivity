@@ -150,7 +150,8 @@ header{
   width: 100%;
   color: white;
   background-color: #0288d1;
-  height: 3.5%;
+  height: 5%;
+  float: left;
 }
 .leftSection{
   width: 100%;
@@ -180,4 +181,10 @@ header{
 }
 .popover{
   z-index: 999;
+}
+#downloadBtn .material-icons, #uploadBtn .material-icons{
+  font-size: 18px;
+}
+#uploadBtn, #downloadBtn{
+  float: right;
 }

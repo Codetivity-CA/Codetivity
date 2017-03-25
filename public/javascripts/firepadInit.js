@@ -112,6 +112,7 @@ function getFileHash(callback) {
 
         // update link holder with link
         document.getElementById("linkHolder").value = 'https://codetivity.herokuapp.com/code?uid=' + uid + '&file=' + ref.key;
+        shareCurrentHash(ref.key);
         populateFiles();
 
         callback(ref);
@@ -132,16 +133,17 @@ function addLinkToFile(uid, file){
 
         snapshot = snapshot.val();
 
-
         // first make sure user has 'sharedWithYou' folder
         if (!snapshot.hasOwnProperty('sharedWithYou')){
             if (DEBUG) {
                 alert("Creating shared folder");
             }
 
+            var newFileObj = {};
+            newFileObj[file] = uid;
             var newObj = {};
-            newObj['sharedWithYou'] = {};
-            newObj['sharedWithYou'][uid] = [file];
+            newObj['sharedWithYou'] = newFileObj;
+
             ref.update(newObj);
         }
         // 'sharedWithYou' already exists
@@ -149,20 +151,9 @@ function addLinkToFile(uid, file){
             snapshot = snapshot['sharedWithYou'];
             ref = ref.child('sharedWithYou');
 
-            // if database contains uid, search its array for file
-            if (snapshot.hasOwnProperty(uid)) {
-                var filesArray = snapshot[uid]; // array of files
-                ref = ref.child(uid);
-
-                // if file not found, add it
-                if ($.inArray(file, filesArray) <= -1) {
-                    filesArray.push(file); // append
-                    ref.set(filesArray); // replace old array in database
-                }
-            }
-            // if database doesn't contain uid, add it
-            else {
-                ref.update({uid: [file]});
+            // if database contains doesn't contain file, add it
+            if (!snapshot.hasOwnProperty(file)) {
+                ref.update({file: uid});
             }
         }
     });

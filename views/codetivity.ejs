@@ -21,11 +21,6 @@
     <!-- Bootstrap Editable Filenames -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 
-    <!--Angulare -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular.min.js"></script>
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-
   </head>
   <body ng-controller= 'myController' onload="startFirepad(); ">
     <!--<h1> {{jsVariable}} </h1>
@@ -77,38 +72,16 @@
       <div class="row" style="height: 100%">
         <!-- SIDEBAR -->
         <div class="col-xs-4 border" style='padding: 0; height: 100%;'>
-          <div class="leftHeader">Files</div>
-          <div class="leftSection isViewport" id="left">
-            <!--Your files: <div id="usersFiles"></div><br>-->
-            <!--Files shared with you: <div id="sharedFiles"></div>-->
-            <!--<br>-->
-            <!--Upload your code: <input id="toup" type="file" onchange="loadfile(this)" style='display: initial'><br>-->
-            <!--Download your code: <button onclick="saveFile()">Click me to download</button><br>-->
+          <div class="leftHeader"><span style="position: relative; top: 5px;">Files</span>
+            <!-- DOWNLOAD -->
+            <label id="downloadBtn" class="button"><i class="material-icons">assignment_returned</i></label>
+            <!-- UPLOAD -->
+            <label for="toup" id="uploadBtn" class="button"><i class="material-icons">backup</i></label>
+            <input id="toup" type="file" onchange="loadfile(this)" style="display:none;"/>
           </div>
-          <div class="leftHeader">Chat</div>
-          <div class="leftSection">
-
-
-
-
-
-
-            <div id="left" class="isViewport">
-              <li style="list-style: none;" ng-repeat="message in messages">
-                {{user}}: {{message.text}}
-              </li>
-            </div>
-            <div id="newMessage">
-              <input type="text" id="messageField" ng-model="newmessage.text">
-              <button id="sendMessage" ng-click="insert(newmessage)">Send</button>
-            </div>
-
-
-
-
-
-
-          </div>
+          <div class="leftSection isViewport" id="left"></div>
+          <div class="leftHeader"><span style="position: relative; top: 5px;">Chat</span></div>
+          <div class="leftSection"></div>
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
@@ -123,6 +96,7 @@
 
     <!-- jQuery (for Bootstrap's JavaScript plugins) + Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
@@ -142,6 +116,5 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
-    <script src="/javascripts/chatApp.js"></script>
   </body>
 </html>
