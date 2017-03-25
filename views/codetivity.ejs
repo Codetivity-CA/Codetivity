@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='myApp'>
+<html>
   <head>
     <!-- <title><%= title %></title> -->
     <title>Codetivity</title>
@@ -22,7 +22,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 
   </head>
-  <body ng-controller= 'myController' onload="startFirepad(); ">
+  <body ng-app="myapp" onload="startFirepad(); ">
     <!--<h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p> -->
@@ -92,7 +92,29 @@
           </div>
           <div class="leftSection isViewport" id="left"></div>
           <div class="leftHeader"><span style="position: relative; top: 5px;">Chat</span></div>
-          <div class="leftSection"></div>
+
+
+
+
+          <!-- CHAT VIEW -->
+          <div ng-controller="MyController" class="leftSection" style="overflow: auto">
+            <div class="list-messages" id="listMessages">
+              <p>
+              <ul>
+                <li ng-repeat="msg in messages"><em>{{msg.from}}</em>: {{msg.body}}</li>
+              </ul>
+              </p>
+            </div>
+            <div class="new-message text-center" id="newMessage">
+              <!--<input type="text" ng-model="name" placeholder="Name" style="width: 49%">-->
+              <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message..." style="width: 100%">
+            </div>
+          </div>
+
+
+
+
+
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
@@ -107,25 +129,26 @@
 
     <!-- jQuery (for Bootstrap's JavaScript plugins) + Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/javascripts/vendor/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/javascript/javascript.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.3.0/angularfire.min.js'></script>
 
     <!-- clipboardjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
     <script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
 
     <!-- Controllers -->
-    <script src="/javascripts/myApp.js"></script>
-    <script src="/javascripts/myController.js"></script>
+    <!--<script src="/javascripts/myApp.js"></script>-->
+    <!--<script src="/javascripts/myController.js"></script>-->
 
     <script src="/javascripts/firebaseConfig.js"></script>
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
+    <script src="/javascripts/chatApp.js"></script>
   </body>
 </html>
