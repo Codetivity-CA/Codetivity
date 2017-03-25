@@ -19,12 +19,16 @@ app.factory('Message', ['$firebaseArray',
         if (params != null && params.length == 2){
             uid = decodeURIComponent(params[0].split('=')[1]);
             file = decodeURIComponent(params[1].split('=')[1]);
+            var ref = firebase.database().ref().child(uid).child(file).child('messages');
+
         }
         else {
-            uid = firebase.auth().currentUser.uid;
-            file = null;
+            uid = (Math.floor(Math.random() * 101)).toString();
+            file = "temp";
+            var ref = firebase.database().ref().child(uid).child(file).child('messages');
+
         }
-        var ref = firebase.database().ref().child(uid).child(file).child('messages');
+
         var messages = $firebaseArray(ref.limitToLast(100));
 
         var Message = {
