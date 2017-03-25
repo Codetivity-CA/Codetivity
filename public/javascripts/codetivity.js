@@ -185,5 +185,5 @@ $('#downloadBtn').on('click', function(){
 });
 
 $('#newFileButton').on('click', function(){
-   window.location = '';
+    window.location = window.location.pathname;
 });
