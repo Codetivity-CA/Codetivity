@@ -183,3 +183,7 @@ function openSharedFile(user, key){
 $('#downloadBtn').on('click', function(){
     saveFile();
 });
+
+$('#newFileButton').on('click', function(){
+   window.location = '';
+});

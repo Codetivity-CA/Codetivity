@@ -181,10 +181,10 @@ header{
 .popover{
   z-index: 999;
 }
-#downloadBtn .material-icons, #uploadBtn .material-icons{
+#downloadBtn .material-icons, #uploadBtn .material-icons, #newFileButton .material-icons{
   font-size: 18px;
 }
-#uploadBtn, #downloadBtn{
+#uploadBtn, #downloadBtn, #newFileButton{
   float: right;
 }
 /* ==================================== Form aka Settings =================================== */
