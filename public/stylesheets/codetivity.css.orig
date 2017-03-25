@@ -62,20 +62,6 @@ header{
 .popover.bottom .arrow:after {
   border-bottom-color: #3e3e3b;
 }
-<<<<<<< HEAD
-=======
-.leftHeader{
-  width: 100%;
-  color: white;
-  background-color: #0288d1;
-  height: 3.5%;
-}
-.leftSection{
-  width: 100%;
-  height: 46.5%;
-}
-
->>>>>>> 636b4d6115a68f4e1b8a7322171a99c8325fda27
 
 /* ==================================== Firepad =================================== */
 
@@ -164,11 +150,12 @@ header{
   width: 100%;
   color: white;
   background-color: #0288d1;
-  height: 3.5%;
+  height: 5%;
+  float: left;
 }
 .leftSection{
   width: 100%;
-  height: 45%;
+  height: 46.4%;
 }
 #left {
   overflow: auto;
@@ -194,4 +181,28 @@ header{
 }
 .popover{
   z-index: 999;
+}
+<<<<<<< HEAD
+#downloadBtn .material-icons, #uploadBtn .material-icons{
+  font-size: 18px;
+}
+#uploadBtn, #downloadBtn{
+  float: right;
+=======
+
+/* ==================================== Form aka Settings =================================== */
+
+form{
+  color: #0288d1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.settings-btn{
+  border: solid;
+  border-color: #0071bc;
+  border-radius: 25px;
+  background-color: #0071bc;
+  color: #ffffff;
+>>>>>>> b6dc0467da5dddd1ad31691eeb1c0c68b4200412
 }

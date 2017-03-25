@@ -188,3 +188,18 @@ header{
 #uploadBtn, #downloadBtn{
   float: right;
 }
+/* ==================================== Form aka Settings =================================== */
+
+form{
+  color: #0288d1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.settings-btn{
+  border: solid;
+  border-color: #0071bc;
+  border-radius: 25px;
+  background-color: #0071bc;
+  color: #ffffff;
+}
