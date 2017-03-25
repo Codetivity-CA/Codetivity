@@ -14,7 +14,17 @@ app.controller('chatController', ['$scope','Message', function($scope,Message){
 app.factory('Message', ['$firebaseArray',
     function($firebaseArray) {
         alert("factory");
-        var ref = firebase.database().ref().child('files');
+        var params = window.location.search.substr(1).split('&');
+        var uid, file;
+        if (params != null && params.length == 2){
+            uid = decodeURIComponent(params[0].split('=')[1]);
+            file = decodeURIComponent(params[1].split('=')[1]);
+        }
+        else {
+            uid = firebase.auth().currentUser.uid;
+            file = null;
+        }
+        var ref = firebase.database().ref().child(uid).child(file).child('messages');
         var messages = $firebaseArray(ref.limitToLast(100));
 
         var Message = {
