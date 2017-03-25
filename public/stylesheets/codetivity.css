@@ -63,6 +63,34 @@ header{
   border-bottom-color: #3e3e3b;
 }
 
+/* ======================Chat================================================== */
+
+.container{
+  height: 50%;
+  margin: 0;
+  width: 100%;
+}
+
+.fileRow h2 {
+  background-color: #0071bc;
+  margin: 0;
+  color: white;
+}
+
+#body_container {
+  margin-top: 0%;
+  padding: 0;
+}
+
+#left-chat {
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  display: block;
+}
+
 /* ==================================== Firepad =================================== */
 
 #firepad-container {

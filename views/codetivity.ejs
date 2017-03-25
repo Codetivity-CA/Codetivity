@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='myApp'>
+<html>
   <head>
     <!-- <title><%= title %></title> -->
     <title>Codetivity</title>
@@ -21,13 +21,19 @@
     <!-- Bootstrap Editable Filenames -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 
+    <!--Angulare -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular.min.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
     <style>
 
 
     </style>
 
   </head>
-  <body ng-controller= 'myController' onload="startFirepad(); ">
+  <body ng-app="chatApp" onload="startFirepad(); ">
     <!--<h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p> -->
@@ -100,7 +106,27 @@
             <!--Download your code: <button onclick="saveFile()">Click me to download</button><br>-->
           </div>
           <div class="leftHeader">Chat</div>
-          <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br></div>
+          <!-- <div class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br></div> -->
+          <div id="message" class="leftSection">
+            <!-- CHAT BEGINS -->
+            <div ng-controller="chatController">
+              <div class="container">
+                <div class="row fileRow">
+                  <div class="col-xs-12" id="body_container">
+                    <div id="left-chat" class="isViewport" style='height: 250px'>
+                        <li style="list-style: none;" ng-repeat="message in messages">
+                          {{user}}: {{message.text}}
+                        </li>
+                    </div>
+                    <div id="newMessage">
+                      <input type="text" id="messageField" ng-model="newmessage.text">
+                      <button id="sendMessage" ng-click="insert(newmessage)">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- CODE VIEW -->
         <div class="col-xs-8 firepadDiv border">
@@ -135,5 +161,6 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
+    <script src="/javascripts/ChatApp2.js"></script>
   </body>
 </html>
