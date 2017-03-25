@@ -50,11 +50,20 @@
               <span class='glyphicon glyphicon-cog settingsCog'></span>
             </button>
             <ul class="dropdown-menu" style="left: inherit; right: 0">
-              <li><a>Action</a></li>
-              <li><a>Another action</a></li>
-              <li><a>Something else here</a></li>
+              <li style="color: #3b3b3b"><b>&nbsp&nbspSettings</b></li>
               <li role="separator" class="divider"></li>
-              <li><a onclick="toggleSignOut()">Sign Out</a></li>
+              <form id="target">
+                <p style="color: #3b3b3b">Change Password:</p>
+                <input id="password1" type="password" placeholder="New Password"/>
+                <br>
+                <input id="password2" type="password" placeholder="Confirm New Password"/>
+                <br><br>
+                <div class="text-center">
+                  <input type="submit" class="settings-btn" value="Change Password">
+                </div>
+              </form>
+              <li role="separator" class="divider"></li>
+              <li class="text-center"><a onclick="toggleSignOut()">Sign Out</a></li>
             </ul>
           </div>
         </div>
