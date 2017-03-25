@@ -16,8 +16,6 @@ function startFirepad(){
             getFileHash(loadFirepad);
 
             $("#userName").html('<b>Logged in as:</b>&nbsp;&nbsp;' + firebase.auth().currentUser.email);
-            window.message = new ChatApp();
-            alert("rtes");
         }
         else {
             alert("Signed out.");

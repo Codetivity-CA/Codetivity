@@ -20,7 +20,12 @@ function pushDown(){
 
 $('[data-toggle="popover"]').popover();
 
-
+/**
+ * Chat
+ */
+$('#sendMessage').on('click', function(){
+    $('#messageField').val('');
+});
 
 /**
  * Clipboard copy

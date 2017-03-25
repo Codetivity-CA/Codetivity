@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html ng-app='myApp'>
+<html>
   <head>
     <!-- <title><%= title %></title> -->
     <title>Codetivity</title>
 
      <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Chat -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 
     <!-- CodeMirror and its JavaScript mode file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
@@ -17,8 +20,14 @@
     <!-- Userlist -->
     <link rel="stylesheet" href='/stylesheets/firepad-userlist.css' />
 
+    <!--Angulare -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.2/angular.min.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
   </head>
-  <body ng-controller= 'myController' onload="startFirepad();">
+  <body ng-app="chatApp" onload="startFirepad();">
     <!--<h1> {{jsVariable}} </h1>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p> -->
@@ -49,7 +58,7 @@
             </ul>
           </div>
         </div>
-        
+
         <!-- LINK COPY -->
         <div class='pull-right linkCopyDiv'>
             <div class="input-group linkCopy" style="width: 300px; float: right">
@@ -77,14 +86,25 @@
             Download your code: <button onclick="saveFile()">Click me to download</button><br>
           </div>
           <div class="leftHeader">Chat</div>
-          <div id="message" class="leftSection">A real-time chat with collaborators is a feature we're hard at work on.<br>
+          <div id="message" class="leftSection">
             <!-- CHAT BEGINS -->
-            <form id="message-form" action="#">
-              <div class="message-form-wrapper">
-                <input class="message-form-input" type="text" id="message2">
+            <div ng-controller="chatController">
+              <div class="container">
+                <div class="row fileRow">
+                  <div class="col-xs-4" id="body_container">
+                    <div id="left" class="isViewport">
+                        <li style="list-style: none;" ng-repeat="message in messages">
+                          {{user}}: {{message.text}}
+                        </li>
+                    </div>
+                    <div id="newMessage">
+                      <input type="text" id="messageField" ng-model="newmessage.text">
+                      <button id="sendMessage" ng-click="insert(newmessage)">Send</button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <button id="submit" class="message-form-button">Send</button>
-            </form>
+            </div>
           </div>
         </div>
         <!-- CODE VIEW -->
@@ -126,7 +146,7 @@
     <script src="/javascripts/firepadInit.js"></script>
     <script src="/javascripts/codetivity.js"></script>
     <script src="/javascripts/firepad-userlist.js"></script>
-    <script src="/javascripts/ChatApp.js"></script>
+    <script src="/javascripts/ChatApp2.js"></script>
 
   </body>
 </html>

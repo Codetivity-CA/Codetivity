@@ -158,20 +158,36 @@ header{
 
 /* ======================Chat================================================== */
 
-.message-form-wrapper{
-  text-align: left;
-
+.container{
+  height: 50%;
+  margin: 0;
+  width: 100%;
 }
 
-.message-form-input{
-  position: absolute;
-  right: 60%;
-  top: 100%;
+.fileRow h2 {
+  background-color: #0071bc;
+  margin: 0;
+  color: white;
 }
 
-.message-form-button{
-  position: absolute;
-  top: 100%;
+#body_container {
+  margin-top: 0%;
+  padding: 0;
+}
+#left {
+  width: 300%;
+  background-color: white;
+  border: 3px solid blue;
+  height: 400px;
+  overflow: auto;
+  position: relative;
+  display: block;
+}
+#newMessage {
+  width: 300%;
+  height: 60px;
+  background-color: grey;
+  position: relative;
 }
 
 
