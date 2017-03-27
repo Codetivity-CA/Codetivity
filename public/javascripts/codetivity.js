@@ -47,9 +47,11 @@ function toggleSignOut(){
  * Populate files
  */
 var currentFile;
+var currentFilesOwner;
 
-function shareCurrentHash(key){
+function shareCurrentHash(key, user){
     currentFile = key;
+    currentFilesOwner = user;
 }
 
 function populateFiles(){
@@ -80,7 +82,7 @@ function showFilesOnScreen(snapshot){
         // index: the ordinal position of the key within the object
         var name;
         if (files[key].hasOwnProperty('name')) name = files[key]['name'];
-        else name = 'BLEH';
+        else name = 'New File';
 
         fileDiv.append(
             '<h5 class="hoverFile nonSharedFile" id=\''+ key +'\'>' +
@@ -98,17 +100,19 @@ function showFilesOnScreen(snapshot){
         '</div>');
 
     // loop through shared files
-    Object.keys(shared).forEach(function(key,index){
-        var name;
-        if (shared[key].hasOwnProperty('name')) name = shared[key]['name'];
-        else name = 'New File'; // To actually load other user's file, you need async call (we didn't have time)
+    if (typeof shared !== 'undefined' || shared != null) {
+        Object.keys(shared).forEach(function (key, index) {
+            var name;
+            if (shared[key].hasOwnProperty('name')) name = shared[key]['name'];
+            else name = 'New File'; // To actually load other user's file, you need async call (we didn't have time)
 
-        fileDiv.append(
-            '<h5 class="hoverFile sharedFile" id=\''+ key +'\'>' +
+            fileDiv.append(
+                '<h5 class="hoverFile sharedFile" id=\'' + key + '\'>' +
                 '<i class="material-icons">description</i>' +
-                '<a href="#" id=\''+ key +'\'data-type="text" data-container="body" data-title="Enter File Name" class="editableSharedName">' + name + '</a>' +
-            '</h5>');
-    });
+                '<a href="#" id=\'' + key + '\'data-type="text" data-container="body" data-title="Enter File Name" class="editableSharedName">' + name + '</a>' +
+                '</h5>');
+        });
+    }
 
     // make each element editable
     $('.editableName').each(function(index, element){
@@ -158,14 +162,11 @@ function showFilesOnScreen(snapshot){
     $('.editableName').on('save', function(event, params) {
         var ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files/' + event.target.id );
         ref.update({'name' : params.newValue});
-        alert(event.target.id);
     });
 
     $('.editableSharedName').on('save', function(event, params) {
         var fileKey = event.target.id;
         var fileUID = shared[fileKey];
-
-        alert(event.target.id);
 
         var ref = firebase.database().ref( fileUID + '/files/' + fileKey );
         ref.update({'name' : params.newValue});

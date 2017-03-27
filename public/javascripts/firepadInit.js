@@ -101,8 +101,13 @@ function getFileHash(callback) {
             ref = firebase.database().ref( firebase.auth().currentUser.uid + '/files' ).push();
             window.history.pushState(null, null, 'code?uid=' + uid + '&file=' + ref.key); // update url
 
-            // Name file something
-            firebase.database().ref( firebase.auth().currentUser.uid + '/files/' + ref.key ).update({'name' : 'New File'});
+            // Add attributes such as filename and chat folder
+            var newObj = {'name' : 'New File'};
+            var chatContainer = {};
+            var chatMessage = {'from' : 'ChatBot', 'body': 'Type here to send your first message.'};
+            chatContainer['*firstMessage'] = chatMessage;
+            newObj['chat'] = chatContainer;
+            firebase.database().ref( firebase.auth().currentUser.uid + '/files/' + ref.key ).update(newObj);
         }
 
         // log
@@ -112,7 +117,7 @@ function getFileHash(callback) {
 
         // update link holder with link
         document.getElementById("linkHolder").value = 'https://codetivity.herokuapp.com/code?uid=' + uid + '&file=' + ref.key;
-        shareCurrentHash(ref.key);
+        shareCurrentHash(ref.key, uid);
         populateFiles();
 
         callback(ref);

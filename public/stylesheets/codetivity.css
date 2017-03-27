@@ -202,3 +202,13 @@ form{
   background-color: #0071bc;
   color: #ffffff;
 }
+
+/* =========================================== CHAT ========================================= */
+#newMessage {
+  position: absolute;
+  bottom: 0;
+  background-color: #0071bc;
+  height: 4%;
+  padding-top: 3px;
+  width: 100%
+}
