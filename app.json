@@ -2,6 +2,6 @@
   "name": "Codetivity",
   "description": "Real-time collaborative web-based code editor",
   "repository": "https://github.com/abhathal/Codetivity",
-  "logo": "https://github.com/abhathal/Codetivity/raw/master/website_files/images/logo.png",
+  "logo": "https://github.com/abhathal/Codetivity/raw/master/website_files/images/codetivity-logo.png",
   "keywords": ["node", "express", "static"]
 }
