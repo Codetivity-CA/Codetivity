@@ -18,6 +18,9 @@ If you don't have git, install it [here](https://git-scm.com/downloads). Now, op
 2. Ensure you're in `Codetivity/` and execute `npm start` command.
 2. Open 'localhost:3000' in your browser to view Codetivity
 
+#### How to run on Heroku:
+
+
 #### Note:
 The main view is the code editor view. For now, the landing page can be accessed by clicking the 'Codetivity' logo on the top left. Later, the landing page will be the main page, and the user will have to login or sign up to view the code editor view.
 
@@ -26,7 +29,3 @@ The main view is the code editor view. For now, the landing page can be accessed
 - **Model** `/routes/` – Back-end connecting with Firebase
 - **View** `/views/` – Rendered expressJS view (what the client-side sees)
 - **Controller** `/public/javascripts` – Angular javascript code that controls the view
-
-## Issues we've faced so far
-- User login security: how to prevent users from accessing others' files
-- Setting up Express environment properly to work with Firebase
