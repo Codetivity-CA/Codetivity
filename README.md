@@ -19,6 +19,7 @@ If you don't have git, install it [here](https://git-scm.com/downloads). Now, op
 2. Open 'localhost:3000' in your browser to view Codetivity
 
 #### How to run on Heroku:
+Click this button to set up the project and deploy it to Heroku's servers:<br>
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 #### Note:
