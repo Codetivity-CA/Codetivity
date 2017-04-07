@@ -19,7 +19,7 @@ If you don't have git, install it [here](https://git-scm.com/downloads). Now, op
 2. Open 'localhost:3000' in your browser to view Codetivity
 
 #### How to run on Heroku:
-
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 #### Note:
 The main view is the code editor view. For now, the landing page can be accessed by clicking the 'Codetivity' logo on the top left. Later, the landing page will be the main page, and the user will have to login or sign up to view the code editor view.
