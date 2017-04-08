@@ -120,8 +120,8 @@
                                         Home
                                     </a>
                                 </li>
-                                <li><a href="ourteam.html"
-                                        class="active">Our Team
+                                <li><a href="retrospective.html"
+                                        class="active">Project Retrospective
                                     </a>
                                 </li>
                             </ol>
@@ -157,94 +157,65 @@
                                     <br>Each member was assigned an equal amount of tasks. However, in the end certain tasks were more difficult than others causing some members to have a larger work load than others, however if a group member struggled another would join and help that member which allowed us to finish our work.
                                 </p>
 
+                                <h1 class="projectPlanHeader">MVC / Design Patterns</h1>
+
+                                <p> 
+                                    <br><br><b>What is the relationship between user interfaces, application logic, and data in your project?</b>
+        
+                                    <br>We tried to separate the user interface, application logic and data as best we could. Codetivity.ejs held our user interfaces while Firebase.js, Codetivity.js, Firepad.js and ChatApp.js held most of the application logic and data.
+
+                                    <br><br><b>Did you implement your server-side program as a REST API?</b>
+                                    
+                                    <br>No. Data transfer and requests were facilitated by Firebase.
+
+                                    <br><br><b>Which collection of classes serve as the M, V, and C in MVC?</b>
+        
+                                    <br>In general, Codetivity was our view, Firebase our controller and Firepad our model. 
+
+                                    <br><br><b>How do these classes communicate with each other? Give an example based on a user action.</b>
+                                    
+                                    <br>Codetivity sends user input to Firepad which notifies the database (Firebase). Firebase then syncs these changes to the database and Firepad is able to push these changes to every running Codetivity session. As an example, if the user enters a word into the coding window (in Codetivity), Firepad receives the word, and pushes it to the Firebase database. Firebase updates the database with this word and Firepad is able to push these changes too all running Codetivity sessions, so every user sees the new word added to the coding window in real time.
+                                    
+                                    <br><br><b>If you were to start the project again today, what aspects of code organization could be improved in your project?</b>
+                                    
+                                    <br>As we were getting started with the project, using a FAN (Firebase, Angular, Nodejs) template seemed to help with getting acquainted with the strucutre of a typical FAN stack web application. However, as we added our own files, classes and funcitnality, we often had to spend a lot of time understanding the organization of the template in order to understand how to organize our files. If I were to start the project again, I would begin with a clean slate and add folders, files and classes as necessary. Doing this would require understanding Nodejs at a deeper level in order to set up the website framework properly. However, I belive this would be worth it as the web app footprint would be decrased and the overall strucutre of our code would be cleaner.
+                                </p>
+
+                                <h1 class="projectPlanHeader">Refactor Retrospective</h1>
+
+                                <p>    
+                                    <br>In this section, suggest possible refactoring of your code in order to improve its design and software quality.
+
+                                    <br><br><b>Areas of your design that you felt were strong:</b>
+                                    
+                                    <br>The decision to use the Firebase database significantly improved our interaction with the database in our project. Firebase offers simple but powerful abstracted commands that allowed us to easily accomplish a lot with our code without necessarily having to write a lot of code. For example, the function firebase.auth().onAuthStateChanged() allowed us to easily ensure certain parts of code were run only when there was a change in the autorization state of the user - for example the user logging in. Using the above function, we could grab the user's id only when the authorization state changed and a valid user was using Codetivity.
+                                    <br>Another nice decision was to separate the chat functionality into chatApp.js. This helped in integrating chat functionality since the chat could be worked on completely separate from the rest of Codetivity. This also allowed our developers to use a dummy UI in order to test chat functionality without having to first integrate chat with our main page. This saved a lot of integration time and also meant that we could be almost certain that any issue with the chat was likely a result of the code inside chatApp.js
+                                    
+                                    <br><br><b>Areas of your design that you felt were weak:</b>
+                                    
+                                    <br>One area we could have improved on was the overall integration and usage of Angular featrues in our website. For the most part, only the chat and coding window used Angular, while other features such as the file viewer were done in vanilla JS and HTML/CSS. While the end result was still beautiful and funcitonal, the overall cohesion suffered as we had to integrate Angular specfici features such as decalring a controller with vanilla JS parts. A reason why this ended up happening was our team had to learn Javascript, HTML, CSS and Angular all at the same time. This meant in order to get the website running quickly and to meet our project deadlines, the website had to begin using vanilla JS, with Angular parts and features added later. If more time was allowed to get familiar with JS and Angular, the website could've been made using Angular from the get-go.
+                                    <br>Another area we could have improved on was the separation of CSS styling in our project. Since we used a bootstrap template to help design the website, we had CSS styling commands spread accross many different files. For example, when we were adding the online members functinality, the styling for this part was split across codetivity.ejs, codetivity.css, firepad-userlist.js, firepad-userlist.css and index.css. There was a specific bug where the current members would sink below the page. This meant we had to look at multiple files in order to track down and fix the cause of the bug. If all the styling for the online members was in a single file, it would be straightforward to read the file, and debug the styling to figure out the cause. Again, limited time meant we were often satisfied with leaving the styling wherever it was once it was working, so we could move on to the next stage of the project. Given more time, we would be able to consolidate styling into a single file.
+                                    
+                                </p>
+
                                 <h1 class="projectPlanHeader">Project Retrospective</h1>
 
-                                <p>
-                                    This feature would allow users to create an account for Codetivity by signing up an email and password. 
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>Integration of Firebase, which offers authentication support using an email address and password.</li>
-                                </ol>
-                                <p>
-                                    Since Firebase offers account creation and authentication support, this feature is feasible.
-                                    <br>Other features such as saving theme options and storing files to a user's account depend on this feature.
-                                </p>
-
-                                <h1 class="projectPlanHeader">Storing files to an account and viewing/downloading them</h1>
-
-                                <p>
-                                    This feature would allow users who have an account to upload their files to their account. They would be able to view/download them at a later date.
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>Implementation of user accounts feature</li>
-                                    <li>Integration of Firebase as it offers free storage for websites</li>
-                                </ol>
-                                <p>
-                                    This feature depends on being able to upload files to cloud storage and link those files to specific user accounts.If Firebase integration and account creation is successful, this feature should be feasible.
-                                    <br>Other features do not depend on this feature.
-                                </p>
-
-                                <h1 class="projectPlanHeader">Users can partake in a real-time chat with collaborations</h1>
-
-                                <p>
-                                    This feature would allow users to have a real-time chat with other collaborators working on the code document. 
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>Implementation of Firebase which offers a chat feature utilizing their real-time database</li>
-                                    <li>Access to the browser session of other users working on the code document to ensure the correct users are in the chat</li>
-                                </ol>
-                                <p>
-                                    If Firebase and user account integration are successful, this feature should be feasible.
-                                    <br>Other features do not depend on this feature.
-                                </p>                                
-
-                                <h1 class="projectPlanHeader">Shared Programming Challenges (Advanced)</h1>
-
-                                <p>
-                                    This feature will add the ability to view a shared text document with other collaborators. This would be a collapsible pane that displays the text document. The idea is for collaborators to work on the same problem together and be able to seamlessly view the challenge right from Codetivity.
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>The addition of a document pane to our front-end that is collapsible</li>
-                                    <li>The associating of the challenge text document with certain users or code files to allow persistence throughout sessions (cloud upload and retrieval)</li>
-                                    <li>An easy way to upload or paste in the document</li>
-                                </ol>
-                                <p>
-                                    The challenge in integrating this feature is largely in the front-end side of things. We believe this feature may be feasible given our Firebase database is able to easily store and retrieve the text documents.
-                                    <br>The shared programming challenge is an additional feature that none of the core features of Codetivity depend upon.
-                                </p>
-
-                                <h1 class="projectPlanHeader">Embedded Javascript Execution (Advanced)</h1>
-
-                                <p>
-                                    This feature would allow users to use the Javascript engine in their browser to execute and view the output of Javascript code they’ve written. The output would appear in a separate pane, either beside or below the editor. This feature would allow users to test their code for proper output right inside Codetivity.
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>Seamless integration of output pane with the code editor view.</li>
-                                </ol>
-                                <p>
-                                    As Codetivity is mainly designed as a collaborative editor, none of the core features of Codetivity depend on being able to execute Javascript code.
-                                    <br>
-                                </p>
-
-                                <h1 class="projectPlanHeader">Integrated Video Conferencing (Advanced)</h1>
-
-                                <p>
-                                    This feature will allow collaborators to engage in a video/audio conference, using their browser, right from Codetivity! Specifically, the WebRTC API allows modern HTML5 browsers (Chrome, Firefox) to engage in video/audio chat from the browser.
-                                    <br>This feature would require:
-                                </p>
-                                <ol>
-                                    <li>Integrating the WebRTC API with our AngularJS front-end</li>
-                                    <li>Integrating our Firebase database with the video chat to allow collaborators to seamlessly start a video chat with each other (retrieving information about other collaborators)</li>
-                                    <li>Handling back-end video chat functionality with Node.js, as required</li>
-                                </ol>
-                                <p>
-                                    Difficulty in integrating the WebRTC API as described above would affect the feasibility of functional video conferencing. Overall, we believe the feature may be feasible as there is only a single API to utilize.
-                                    <br>Video conferencing is an additional feature that the core features of Codetivity do not depend upon. Even with video conferencing integrated, text-based chat will still be featured in Codetivity.
+                                <p>    
+                                    <br><br><b>What did your group do well?</b>
+                                    
+                                    <br>Each member took time to get familiar with the frameworks and languages we proposed would be required to finish specific parts of the project. This made it easier for different members to specialize and focus on certain parts of the project as not everyone had to be an expert in every field. Our group members also had meetings outside of weekly meeting hours with each other to collaborate and finish work that was assigned to a small sub section of members. This ensured key parts of the project were being worked on in a timely manner. The back and front end also had key members who communicated with each other to specifically put together everyone’s work.
+                                    
+                                    <br><br><b>What could your group have done better?</b>
+                                    
+                                    <br>In the end certain parts of the front end and back end were more significant than others causing some group members to have a larger work load than others. This could have been avoided if more members were assigned to the more difficult tasks rather than assigning an equal number of tasks to each individual. 
+                                    
+                                    <br><br><b>What did you like about the tools and frameworks you used?</b>
+                                    
+                                    <br>The primary tools and frameworks we used; firebase, angularjs, angularfire, and nodejs were all popular tools, because of this the documentation was more modern and easy to understand as many questions we had were already posted and answered online on popular sites such as stackoverflow.
+                                    
+                                    <br><br><b>What didn’t you like about the tools and frameworks you used?</b>
+        
+                                    <br>A majority of the tools and frameworks we used required experience in JavaScript which our group was not familiar with. This meant we had to spend time getting familiar with JavaScript before we could even spend time getting familiar with the frameworks we were going to utilize. 
                                 </p>
                             </div>
                         </div>
