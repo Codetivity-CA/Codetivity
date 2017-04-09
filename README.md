@@ -3,7 +3,7 @@ Real-time collaborative web-based code editor.<br>
 [Codetivity Website →](https://codetivity.herokuapp.com/)<br>
 [Project Writeup →](https://abhathal.github.io/Codetivity)
 
-<iframe width="1422" height="597" src="https://www.youtube.com/embed/lhMnN3gKrIo" frameborder="0" allowfullscreen></iframe>
+[![Codetivity](https://github.com/abhathal/Codetivity/raw/master/website_files/images/Screen%20Shot%202017-04-08%20at%2011.25.53%20PM.png)](https://www.youtube.com/watch?v=lhMnN3gKrIo "Codetivity")
 
 ## How to Run
 
