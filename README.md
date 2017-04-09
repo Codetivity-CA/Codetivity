@@ -3,6 +3,8 @@ Real-time collaborative web-based code editor.<br>
 [Codetivity Website →](https://codetivity.herokuapp.com/)<br>
 [Project Writeup →](https://abhathal.github.io/Codetivity)
 
+<iframe width="1422" height="597" src="https://www.youtube.com/embed/lhMnN3gKrIo" frameborder="0" allowfullscreen></iframe>
+
 ## How to Run
 
 If you don't have git, install it [here](https://git-scm.com/downloads). Now, open your terminal and in a directory of your choice run `git clone https://github.com/abhathal/Codetivity.git`, then change your directory to `Codetivity/`.
