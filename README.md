@@ -24,9 +24,6 @@ If you don't have git, install it [here](https://git-scm.com/downloads). Now, op
 Click this button to set up the project and deploy it to Heroku's servers:<br><br>
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-#### Note:
-The main view is the code editor view. For now, the landing page can be accessed by clicking the 'Codetivity' logo on the top left. Later, the landing page will be the main page, and the user will have to login or sign up to view the code editor view.
-
 ## MVC file structure
 
 - **Model** `/routes/` – Back-end connecting with Firebase
