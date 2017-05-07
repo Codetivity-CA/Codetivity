@@ -25,8 +25,8 @@ Now, open your terminal and in a directory of your choice run `git clone https:/
 Click this button to set up the project and deploy it to Heroku's servers:<br><br>
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## MVC file structure
+## MVC file structure (loosely adherent)
 
 - **Model** `/routes/` – Back-end connecting with Firebase
 - **View** `/views/` – Rendered expressJS view (what the client-side sees)
-- **Controller** `/public/javascripts` – Angular javascript code that controls the view
+- **Controller** `/public/javascripts` – Angular javascript code that controls the view, and uses the Model for data operations
